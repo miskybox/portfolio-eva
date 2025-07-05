@@ -1,0 +1,182 @@
+
+.skills {
+  padding: 6rem 2rem;
+  background: rgba(0, 0, 0, 0.95);
+  position: relative;
+}
+
+.skills::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    linear-gradient(45deg, transparent 40%, rgba(255, 0, 128, 0.05) 50%, transparent 60%),
+    linear-gradient(-45deg, transparent 40%, rgba(0, 255, 255, 0.05) 50%, transparent 60%);
+  pointer-events: none;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+.title {
+  font-family: 'Orbitron', monospace;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 900;
+  text-align: center;
+  margin-bottom: 4rem;
+  background: linear-gradient(45deg, #00ffff, #ff0080);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: 0 0 30px rgba(0, 255, 255, 0.3);
+}
+
+.skillsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 3rem;
+}
+
+.skillCategory {
+  background: rgba(0, 0, 0, 0.7);
+  border: 1px solid rgba(255, 0, 128, 0.3);
+  border-radius: 15px;
+  padding: 2.5rem;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.skillCategory::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255, 0, 128, 0.1) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.skillCategory:hover::before {
+  opacity: 1;
+}
+
+.skillCategory:hover {
+  transform: translateY(-10px);
+  border-color: rgba(0, 255, 255, 0.5);
+  box-shadow: 0 20px 40px rgba(0, 255, 255, 0.2);
+}
+
+.categoryTitle {
+  font-family: 'Orbitron', monospace;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #00ffff;
+  margin-bottom: 2rem;
+  text-align: center;
+  text-shadow: 0 0 15px rgba(0, 255, 255, 0.5);
+  position: relative;
+  z-index: 2;
+}
+
+.skillsList {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  position: relative;
+  z-index: 2;
+}
+
+.skillItem {
+  background: rgba(0, 0, 0, 0.5);
+  padding: 1.5rem;
+  border-radius: 10px;
+  border: 1px solid rgba(0, 255, 255, 0.2);
+  transition: all 0.3s ease;
+}
+
+.skillItem:hover {
+  border-color: rgba(255, 0, 128, 0.4);
+  transform: translateX(5px);
+}
+
+.skillHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.skillName {
+  font-family: 'Orbitron', monospace;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #fff;
+}
+
+.skillLevel {
+  font-family: 'Orbitron', monospace;
+  font-size: 0.9rem;
+  color: #ff0080;
+  font-weight: 700;
+  text-shadow: 0 0 10px rgba(255, 0, 128, 0.5);
+}
+
+.skillBar {
+  height: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+  overflow: hidden;
+  position: relative;
+}
+
+.skillProgress {
+  height: 100%;
+  background: linear-gradient(90deg, #ff0080, #00ffff);
+  border-radius: 4px;
+  transition: width 2s ease-in-out;
+  position: relative;
+  animation: glow 2s ease-in-out infinite alternate;
+}
+
+.skillProgress::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.3) 50%, transparent 100%);
+  animation: shimmer 2s infinite;
+}
+
+@keyframes glow {
+  0% { box-shadow: 0 0 5px rgba(255, 0, 128, 0.5); }
+  100% { box-shadow: 0 0 15px rgba(0, 255, 255, 0.8); }
+}
+
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+@media (max-width: 768px) {
+  .skillsGrid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .skillCategory {
+    padding: 2rem;
+  }
+}
