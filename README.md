@@ -1,7 +1,6 @@
 <p align="center"> 
-  <img src=<img src="https://raw.githubusercontent.com/miskybox/retro-future-canvas/main/public/banner.png"
-   alt="Eva Sisalli Guzmán Banner" />
-
+[  <img src=<img src="https://raw.githubusercontent.com/miskybox/retro-future-canvas/main/public/banner.png"](https://raw.githubusercontent.com/miskybox/retro-future-canvas/main/public/banner.png
+)
   " alt="Eva Sisalli Guzmán Banner" />
 </p> 
 
