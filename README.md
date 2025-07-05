@@ -1,8 +1,8 @@
-<p align="center"> 
-[  <img src=<img src="https://raw.githubusercontent.com/miskybox/retro-future-canvas/main/public/banner.png"](https://raw.githubusercontent.com/miskybox/retro-future-canvas/main/public/banner.png
-)
-  " alt="Eva Sisalli Guzmán Banner" />
-</p> 
+<p align="center">
+  <img src="https://raw.githubusercontent.com/miskybox/retro-future-canvas/main/public/banner.png" 
+       alt="Eva Sisalli Guzmán Retro Futuristic Banner" />
+</p>
+
 
 # 👩‍💻 Eva Sisalli Guzmán — Full Stack Developer
 
