@@ -1,5 +1,6 @@
 <p align="center"> 
-  <img src="https://raw.githubusercontent.com/miskybox/retro-future-canvas/main/banner.png" alt="Eva Sisalli Guzmán Banner" />
+  <img src="https://raw.githubusercontent.com/miskybox/retro-future-canvas/main/banner.png
+  " alt="Eva Sisalli Guzmán Banner" />
 </p> 
 
 # 👩‍💻 Eva Sisalli Guzmán — Full Stack Developer
@@ -25,8 +26,9 @@
 
 | Proyecto / Project | Descripción / Description | Tech | Enlace / Link |
 |--------------------|---------------------------|------|----------------|
-| 🧵 Urdimbre | Sistema de gestión de actividades con dashboards por roles (Admin / Organizador).<br>Activity manager with role-based dashboards (Admin / Organizer). | Java, Spring Boot, React | [GitHub](https://github.com/miskybox/urdimbre) |
-| 🌍 Forum Viajeros | SPA para compartir experiencias viajeras.<br>SPA to share travel experiences. | React, Tailwind CSS | [GitHub](https://github.com/miskybox/forum-viajeros) |
+| 🧵 Urdimbre | Sistema de gestión de actividades con dashboards por roles (Admin / Organizador).<br>Activity manager with role-based dashboards (Admin / Organizer). | Java, Spring Boot, React | [GitHub](https://github.com/miskybox/Urdimbre_Frontend.git) |
+| 🌍 Forum Viajeros | SPA para compartir experiencias viajeras.<br>SPA to share travel experiences. | React, Tailwind CSS | [GitHub](https://github.com/miskybox/Forum_frontend.git) |
+ |[GitHub](https://github.com/miskybox/Forum_backend.git)
 | 🧪 Playwright QA Tests | Tests automáticos E2E para flujos críticos con Playwright. | Playwright, TypeScript | [GitHub](https://github.com/miskybox/playwright-tests) |
 
 ---

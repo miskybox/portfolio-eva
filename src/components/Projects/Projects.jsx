@@ -9,14 +9,14 @@ const Projects = () => {
       title: "🧵 Urdimbre",
       description: "Sistema de gestión de actividades con dashboards por roles (Admin / Organizador). Desarrollo full-stack con autenticación y autorización.",
       tech: ["Java", "Spring Boot", "React", "PostgreSQL"],
-      link: "https://github.com/miskybox/urdimbre",
+      link: "https://github.com/miskybox/Urdimbre_Frontend.git",
       featured: true
     },
     {
       title: "🌍 Forum Viajeros",
       description: "SPA para compartir experiencias viajeras. Interfaz moderna y responsive con funcionalidades de comunidad.",
       tech: ["React", "Tailwind CSS", "API REST"],
-      link: "https://github.com/miskybox/forum-viajeros",
+      link: "https://github.com/miskybox/Forum_frontend.git",
       featured: true
     },
     {
