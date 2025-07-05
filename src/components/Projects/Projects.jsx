@@ -33,9 +33,9 @@ const Projects = () => {
       <div className={styles.container}>
         <h2 className={styles.title}>PROYECTOS DESTACADOS</h2>
         <div className={styles.projectsGrid}>
-          {projects.map((project, index) => (
+          {projects.map((project) => (
             <div 
-              key={index} 
+              key={project.title} 
               className={`${styles.projectCard} ${project.featured ? styles.featured : ''}`}
             >
               <div className={styles.cardHeader}>
@@ -44,8 +44,8 @@ const Projects = () => {
               </div>
               <p className={styles.projectDescription}>{project.description}</p>
               <div className={styles.techStack}>
-                {project.tech.map((tech, techIndex) => (
-                  <span key={techIndex} className={styles.techTag}>
+                {project.tech.map((tech) => (
+                  <span key={tech} className={styles.techTag}>
                     {tech}
                   </span>
                 ))}
