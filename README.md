@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="((https://github.com/miskybox/retro-future-canvas/blob/main/public/banner.png)" 
+  <img src="((https://github.com/miskybox/portfolio-eva/blob/main/public/banner.png)" 
        alt="Eva Sisalli Guzmán" />
 </p>
 
