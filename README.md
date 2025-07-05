@@ -1,6 +1,6 @@
 <p align="center">
-  <img src="https://raw.githubusercontent.com/miskybox/retro-future-canvas/main/public/banner.png" 
-       alt="Eva Sisalli Guzmán Retro Futuristic Banner" />
+  <img src="(https://raw.githubusercontent.com/miskybox/retro-future-canvas/main/public/banner.png)" 
+       alt="Eva Sisalli Guzmán" />
 </p>
 
 
