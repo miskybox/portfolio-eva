@@ -41,7 +41,14 @@ const About = () => {
                 <div className={styles.timelineDate}>2024 - 2025</div>
                 <div className={styles.timelineContent}>
                   <h4>Factoría F5 – FemCoders</h4>
-                  <p>Bootcamp intensivo en desarrollo Full Stack</p>
+                  <p>Bootcamp intensivo de desarrollo Full Stack con Java y React</p>
+                </div>
+              </div>
+              <div className={styles.timelineItem}>
+                <div className={styles.timelineDate}>2023 - 2024</div>
+                <div className={styles.timelineContent}>
+                  <h4>IT Academy – Barcelona Activa</h4>
+                  <p>Bootcamp intensivo de desarrollo con JavaSript, HTML, CSS , React</p>
                 </div>
               </div>
               <div className={styles.timelineItem}>
