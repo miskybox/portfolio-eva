@@ -88,51 +88,45 @@ const Contact = () => {
         throw new Error('Datos inválidos después de la sanitización');
       }
 
-      // Crear el cuerpo del email
-      const emailBody = `Nuevo mensaje desde el portafolio:
+      // Enviar usando Formspree
+      const response = await fetch('https://formspree.io/f/myzjarol', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+          name: sanitizedData.name,
+          email: sanitizedData.email,
+          message: sanitizedData.message,
+          _replyto: sanitizedData.email,
+          _subject: `[PORTFOLIO] Nuevo mensaje - ${sanitizedData.name}`
+        })
+      });
 
-Nombre: ${sanitizedData.name}
-Email: ${sanitizedData.email}
-Mensaje: ${sanitizedData.message}
-
-Enviado el: ${new Date().toLocaleString('es-ES', { 
-  timeZone: 'Europe/Madrid',
-  year: 'numeric',
-  month: 'long',
-  day: 'numeric',
-  hour: '2-digit',
-  minute: '2-digit'
-})}`;
-
-      // Crear el enlace mailto
-      const subject = `Nuevo mensaje desde portafolio - ${sanitizedData.name}`;
-      const mailtoLink = `mailto:e.sisalli@yahoo.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(emailBody)}`;
-
-      // Abrir cliente de correo
-      window.location.href = mailtoLink;
-
-      // Simular envío exitoso después de un breve delay
-      setTimeout(() => {
+      if (response.ok) {
         setSubmitStatus('success');
         setFormData({ name: '', email: '', message: '' });
         setValidationErrors({});
-        setIsSubmitting(false);
         
         // Limpiar mensaje de éxito después de 5 segundos
         setTimeout(() => {
           setSubmitStatus(null);
         }, 5000);
-      }, 1000);
+      } else {
+        throw new Error('Error en el envío');
+      }
 
     } catch (error) {
       console.error('Error al enviar el formulario:', error);
       setSubmitStatus('error');
-      setIsSubmitting(false);
       
       // Limpiar mensaje de error después de 5 segundos
       setTimeout(() => {
         setSubmitStatus(null);
       }, 5000);
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
