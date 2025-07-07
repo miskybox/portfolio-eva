@@ -10,26 +10,26 @@ const Contact = () => {
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState(null); // 'success' | 'error' | null
+  const [submitStatus, setSubmitStatus] = useState(null); 
   const [validationErrors, setValidationErrors] = useState({});
 
-  // Función para sanitizar texto
+  
   const sanitizeText = (text) => {
     return text
-      .replace(/[<>]/g, '') // Elimina < y >
-      .replace(/javascript:/gi, '') // Elimina javascript:
-      .replace(/on\w+=/gi, '') // Elimina eventos como onclick=
-      .replace(/script/gi, '') // Elimina script
+      .replace(/[<>]/g, '') 
+      .replace(/javascript:/gi, '') 
+      .replace(/on\w+=/gi, '') 
+      .replace(/script/gi, '') 
       .trim();
   };
 
-  // Validar email
+  
   const validateEmail = (email) => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return emailRegex.test(email);
   };
 
-  // Validar formulario
+  
   const validateForm = () => {
     const errors = {};
     
@@ -63,7 +63,7 @@ const Contact = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     
-    // Validar formulario
+    
     const errors = validateForm();
     setValidationErrors(errors);
     
@@ -76,19 +76,19 @@ const Contact = () => {
     setSubmitStatus(null);
 
     try {
-      // Sanitizar datos
+      
       const sanitizedData = {
         name: sanitizeText(formData.name),
         email: sanitizeText(formData.email),
         message: sanitizeText(formData.message)
       };
 
-      // Verificar que los datos sanitizados no estén vacíos
+      
       if (!sanitizedData.name || !sanitizedData.email || !sanitizedData.message) {
         throw new Error('Datos inválidos después de la sanitización');
       }
 
-      // Enviar usando Formspree
+      
       const response = await fetch('https://formspree.io/f/myzjarol', {
         method: 'POST',
         headers: {
@@ -109,7 +109,7 @@ const Contact = () => {
         setFormData({ name: '', email: '', message: '' });
         setValidationErrors({});
         
-        // Limpiar mensaje de éxito después de 5 segundos
+        
         setTimeout(() => {
           setSubmitStatus(null);
         }, 5000);
@@ -121,7 +121,7 @@ const Contact = () => {
       console.error('Error al enviar el formulario:', error);
       setSubmitStatus('error');
       
-      // Limpiar mensaje de error después de 5 segundos
+      
       setTimeout(() => {
         setSubmitStatus(null);
       }, 5000);
@@ -133,7 +133,7 @@ const Contact = () => {
   const handleChange = (e) => {
     const { name, value } = e.target;
     
-    // Limitar longitud de caracteres
+    
     const maxLengths = {
       name: 50,
       email: 100,
@@ -146,7 +146,7 @@ const Contact = () => {
         [name]: value
       });
       
-      // Limpiar errores de validación cuando el usuario empiece a escribir
+      
       if (validationErrors[name]) {
         setValidationErrors({
           ...validationErrors,
@@ -197,7 +197,7 @@ const Contact = () => {
           </div>
           
           <form className={styles.contactForm} onSubmit={handleSubmit}>
-            {/* Mensaje de estado */}
+            
             {submitStatus === 'success' && (
               <div className={styles.statusMessage + ' ' + styles.success}>
                 <CheckCircle size={20} />

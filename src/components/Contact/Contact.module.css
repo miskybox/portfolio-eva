@@ -178,7 +178,7 @@
   cursor: not-allowed;
 }
 
-/* Nuevos estilos solo para funcionalidad de seguridad */
+
 .statusMessage {
   display: flex;
   align-items: center;
