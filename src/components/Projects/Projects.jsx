@@ -21,9 +21,9 @@ const Projects = () => {
     },
     {
       title: "🧪 Playwright QA Tests",
-      description: "Suite completa de tests automáticos E2E para flujos críticos utilizando Playwright y TypeScript.",
+      description: "Este proyecto automatiza pruebas sobre la tienda de ejemplo Polymer Shop usando Playwright, con una estrategia clara basada en riesgo y flujos críticos de usuario.",
       tech: ["Playwright", "TypeScript", "Testing"],
-      link: "https://github.com/miskybox/playwright-tests",
+      link: "https://github.com/miskybox/project-qa-tests.git",
       featured: false
     }
   ];
