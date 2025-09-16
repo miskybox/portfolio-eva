@@ -7,7 +7,7 @@ type SEOProps = {
   readonly image?: string;
 };
 
-export default function SEO({
+export default function Seo({
   title,
   description,
   keywords = "Eva Sisalli, Fullstack Developer, React, Java, Portfolio, Barcelona",
