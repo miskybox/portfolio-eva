@@ -5,17 +5,28 @@ import styles from './Hero.module.css';
 const Hero = () => {
   const [displayText, setDisplayText] = useState('');
   const [currentIndex, setCurrentIndex] = useState(0);
-  const fullText = 'FULL STACK DEVELOPER';
+  const [currentRole, setCurrentRole] = useState(0);
+  const roles = ['FULL STACK DEVELOPER', 'QA AUTOMATION ENGINEER', 'CIBERSEGURIDAD'];
 
   useEffect(() => {
+    const fullText = roles[currentRole];
+    
     if (currentIndex < fullText.length) {
       const timeout = setTimeout(() => {
         setDisplayText(prev => prev + fullText[currentIndex]);
         setCurrentIndex(prev => prev + 1);
-      }, 100);
+      }, 80);
+      return () => clearTimeout(timeout);
+    } else {
+      // Wait and then switch to next role
+      const timeout = setTimeout(() => {
+        setDisplayText('');
+        setCurrentIndex(0);
+        setCurrentRole((prev) => (prev + 1) % roles.length);
+      }, 2500);
       return () => clearTimeout(timeout);
     }
-  }, [currentIndex, fullText]);
+  }, [currentIndex, currentRole, roles]);
 
   return (
     <section className={styles.hero}>
@@ -29,8 +40,8 @@ const Hero = () => {
             <span className={styles.cursor}>|</span>
           </h2>
           <p className={styles.description}>
-            Desarrolladora Web con pasión por crear interfaces intuitivas y accesibles.
-            Especializada en React, Java Spring Boot y tecnologías modernas.
+            Desarrolladora Full Stack especializada en React, Java Spring Boot y Testing E2E con Playwright.
+            Integro estándares de Ciberseguridad (OWASP) desde las fases tempranas del desarrollo.
           </p>
           <div className={styles.cta}>
             <button 

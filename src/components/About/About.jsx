@@ -10,27 +10,27 @@ const About = () => {
         <div className={styles.content}>
           <div className={styles.textContent}>
             <p className={styles.description}>
-              Soy una desarrolladora Full Stack Junior con formación sólida en Java y React. 
-              Mi pasión radica en crear interfaces intuitivas, accesibles y escalables que 
-              ofrezcan experiencias de usuario excepcionales.
+              Desarrolladora Full Stack Junior especializada en el ecosistema Java y JavaScript/TypeScript. 
+              Mi enfoque va más allá de la escritura de código: integro estrategias de QA Automation 
+              (Playwright) y estándares de Ciberseguridad (OWASP) desde las fases tempranas del desarrollo.
             </p>
             <p className={styles.description}>
-              Con experiencia en desarrollo de Single Page Applications (SPA) y consumo de 
-              APIs RESTful, me caracterizo por mi mentalidad analítica, orientación a la 
-              mejora continua y capacidad de adaptación rápida a nuevas tecnologías.
+              Experiencia práctica en la creación de SPA escalables, consumo de APIs RESTful y gestión 
+              de bases de datos relacionales. Busco aportar mi capacidad analítica y proactividad en un 
+              equipo técnico que valore el código limpio, seguro y testeable.
             </p>
             <div className={styles.highlights}>
               <div className={styles.highlight}>
                 <span className={styles.highlightNumber}>2+</span>
-                <span className={styles.highlightText}>Años de Experiencia</span>
+                <span className={styles.highlightText}>Años en Tech</span>
               </div>
               <div className={styles.highlight}>
-                <span className={styles.highlightNumber}>15+</span>
-                <span className={styles.highlightText}>Proyectos Completados</span>
+                <span className={styles.highlightNumber}>3</span>
+                <span className={styles.highlightText}>Bootcamps</span>
               </div>
               <div className={styles.highlight}>
-                <span className={styles.highlightNumber}>100%</span>
-                <span className={styles.highlightText}>Dedicación</span>
+                <span className={styles.highlightNumber}>E2E</span>
+                <span className={styles.highlightText}>QA Automation</span>
               </div>
             </div>
           </div>
@@ -38,24 +38,31 @@ const About = () => {
             <h3 className={styles.sectionTitle}>EXPERIENCIA</h3>
             <div className={styles.timeline}>
               <div className={styles.timelineItem}>
+                <div className={styles.timelineDate}>2025</div>
+                <div className={styles.timelineContent}>
+                  <h4>Basetis – QA Automation Engineer</h4>
+                  <p>Testing E2E con Playwright y TypeScript. Implementación de POM y Allure Reports.</p>
+                </div>
+              </div>
+              <div className={styles.timelineItem}>
                 <div className={styles.timelineDate}>2024 - 2025</div>
                 <div className={styles.timelineContent}>
                   <h4>Factoría F5 – FemCoders</h4>
-                  <p>Bootcamp intensivo de desarrollo Full Stack con Java y React</p>
+                  <p>Desarrollo Full Stack con Java Spring Boot, NestJS y Ciberseguridad. Participación en HackBarna AI Summit 25.</p>
                 </div>
               </div>
               <div className={styles.timelineItem}>
                 <div className={styles.timelineDate}>2023 - 2024</div>
                 <div className={styles.timelineContent}>
                   <h4>IT Academy – Barcelona Activa</h4>
-                  <p>Bootcamp intensivo de desarrollo con JavaSript, HTML, CSS , React</p>
+                  <p>Desarrollo Frontend con React. Liderazgo del proyecto "Forum Viajeros" (SPA interactiva).</p>
                 </div>
               </div>
               <div className={styles.timelineItem}>
                 <div className={styles.timelineDate}>2006 - 2022</div>
                 <div className={styles.timelineContent}>
                   <h4>Sector Hotelería y Restauración</h4>
-                  <p>Experiencia en atención al cliente y trabajo en equipo</p>
+                  <p>+15 años de gestión de equipos, liderazgo y resolución de crisis.</p>
                 </div>
               </div>
             </div>

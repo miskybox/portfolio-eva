@@ -8,30 +8,59 @@ const Skills = () => {
       title: "Frontend",
       skills: [
         { name: "React", level: 90 },
-        { name: "JavaScript", level: 85 },
-        { name: "TypeScript", level: 80 },
+        { name: "JavaScript (ES6+)", level: 88 },
+        { name: "TypeScript", level: 85 },
         { name: "HTML5/CSS3", level: 95 },
-        { name: "Tailwind CSS", level: 85 }
+        { name: "Tailwind CSS", level: 88 },
+        { name: "Bootstrap", level: 80 }
       ]
     },
     {
       title: "Backend",
       skills: [
-        { name: "Java", level: 85 },
-        { name: "Spring Boot", level: 80 },
-        { name: "PostgreSQL", level: 75 },
-        { name: "RESTful APIs", level: 85 },
-        { name: "Firebase", level: 70 }
+        { name: "Java (Spring Boot)", level: 85 },
+        { name: "Node.js (NestJS)", level: 80 },
+        { name: "Prisma ORM", level: 75 },
+        { name: "RESTful APIs", level: 88 },
+        { name: "PostgreSQL", level: 80 }
       ]
     },
     {
-      title: "Tools & Other",
+      title: "QA & Testing",
       skills: [
-        { name: "Git/GitHub", level: 90 },
-        { name: "Postman", level: 85 },
-        { name: "Figma", level: 75 },
-        { name: "Testing", level: 80 },
-        { name: "Scrum/Agile", level: 85 }
+        { name: "Playwright (E2E)", level: 85 },
+        { name: "Jest / Vitest", level: 80 },
+        { name: "JUnit", level: 75 },
+        { name: "Testing Library", level: 80 },
+        { name: "Allure Reports", level: 75 }
+      ]
+    },
+    {
+      title: "DevOps & Cloud",
+      skills: [
+        { name: "Git / Gitflow", level: 90 },
+        { name: "Docker (Básico)", level: 65 },
+        { name: "Supabase", level: 78 },
+        { name: "Firebase", level: 75 },
+        { name: "Vercel", level: 80 }
+      ]
+    },
+    {
+      title: "Ciberseguridad",
+      skills: [
+        { name: "Burp Suite", level: 70 },
+        { name: "OWASP ZAP", level: 70 },
+        { name: "Secure Coding", level: 75 },
+        { name: "OWASP Top 10", level: 78 }
+      ]
+    },
+    {
+      title: "Herramientas",
+      skills: [
+        { name: "Postman", level: 88 },
+        { name: "Jira", level: 80 },
+        { name: "Scrum/Agile", level: 85 },
+        { name: "POM Pattern", level: 80 }
       ]
     }
   ];
