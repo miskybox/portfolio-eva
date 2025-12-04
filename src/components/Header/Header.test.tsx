@@ -23,7 +23,7 @@ describe('Header Component', () => {
 
   it('should display the logo text', () => {
     render(<Header />)
-    expect(screen.getByText('EVA.DEV')).toBeInTheDocument()
+    expect(screen.getByText('ESG')).toBeInTheDocument()
   })
 
   it('should render navigation buttons', () => {

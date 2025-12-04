@@ -1,5 +1,7 @@
 
-@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;900&display=swap');
+/* Inter: moderna, geométrica y altamente accesible */
+/* Orbitron: futurista para títulos del Hero */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&family=Orbitron:wght@400;500;600;700;800;900&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -50,6 +52,46 @@ All colors MUST be HSL.
     --sidebar-border: 320 100% 25%;
     --sidebar-ring: 320 100% 50%;
   }
+
+  /* Light mode - High contrast accessible theme */
+  .light {
+    --background: 0 0% 98%;
+    --foreground: 0 0% 10%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 10%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 10%;
+
+    --primary: 320 85% 40%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 180 70% 35%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 240 5% 92%;
+    --muted-foreground: 240 5% 40%;
+
+    --accent: 320 85% 40%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84.2% 45%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 320 30% 70%;
+    --input: 240 5% 90%;
+    --ring: 320 85% 40%;
+
+    --sidebar-background: 0 0% 96%;
+    --sidebar-foreground: 0 0% 15%;
+    --sidebar-primary: 320 85% 40%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 5% 92%;
+    --sidebar-accent-foreground: 0 0% 15%;
+    --sidebar-border: 320 30% 70%;
+    --sidebar-ring: 320 85% 40%;
+  }
 }
 
 @layer base {
@@ -59,10 +101,16 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
-    font-family: 'Orbitron', monospace;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     margin: 0;
     padding: 0;
     overflow-x: hidden;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  /* Code and monospace elements */
+  code, pre, .mono {
+    font-family: 'JetBrains Mono', 'Fira Code', monospace;
   }
 
   html {
@@ -76,6 +124,10 @@ All colors MUST be HSL.
 
   ::-webkit-scrollbar-track {
     background: rgba(0, 0, 0, 0.1);
+  }
+
+  .light ::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.05);
   }
 
   ::-webkit-scrollbar-thumb {

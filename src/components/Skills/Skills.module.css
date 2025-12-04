@@ -1,8 +1,9 @@
 
 .skills {
   padding: 6rem 2rem;
-  background: rgba(0, 0, 0, 0.95);
+  background: hsl(var(--background));
   position: relative;
+  transition: background-color 0.3s ease;
 }
 
 .skills::before {
@@ -18,6 +19,12 @@
   pointer-events: none;
 }
 
+:global(.light) .skills::before {
+  background-image: 
+    linear-gradient(45deg, transparent 40%, rgba(200, 0, 100, 0.03) 50%, transparent 60%),
+    linear-gradient(-45deg, transparent 40%, rgba(0, 150, 150, 0.03) 50%, transparent 60%);
+}
+
 .container {
   max-width: 1200px;
   margin: 0 auto;
@@ -26,16 +33,22 @@
 }
 
 .title {
-  font-family: 'Orbitron', monospace;
+  font-family: 'Inter', sans-serif;
   font-size: clamp(2rem, 4vw, 3rem);
-  font-weight: 900;
+  font-weight: 800;
   text-align: center;
   margin-bottom: 4rem;
-  background: linear-gradient(45deg, #00ffff, #ff0080);
+  background: linear-gradient(45deg, #00bcd4, #e91e8c);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  text-shadow: 0 0 30px rgba(0, 255, 255, 0.3);
+}
+
+:global(.light) .title {
+  background: linear-gradient(45deg, #00838f, #c2185b);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .skillsGrid {
@@ -45,8 +58,8 @@
 }
 
 .skillCategory {
-  background: rgba(0, 0, 0, 0.7);
-  border: 1px solid rgba(255, 0, 128, 0.3);
+  background: hsl(var(--card));
+  border: 1px solid hsl(var(--border));
   border-radius: 15px;
   padding: 2.5rem;
   backdrop-filter: blur(10px);
@@ -62,7 +75,7 @@
   left: -50%;
   width: 200%;
   height: 200%;
-  background: radial-gradient(circle, rgba(255, 0, 128, 0.1) 0%, transparent 70%);
+  background: radial-gradient(circle, hsl(var(--primary) / 0.1) 0%, transparent 70%);
   opacity: 0;
   transition: opacity 0.3s ease;
 }
@@ -73,20 +86,23 @@
 
 .skillCategory:hover {
   transform: translateY(-10px);
-  border-color: rgba(0, 255, 255, 0.5);
-  box-shadow: 0 20px 40px rgba(0, 255, 255, 0.2);
+  border-color: hsl(var(--secondary));
+  box-shadow: 0 20px 40px hsl(var(--secondary) / 0.2);
 }
 
 .categoryTitle {
-  font-family: 'Orbitron', monospace;
-  font-size: 1.8rem;
+  font-family: 'Inter', sans-serif;
+  font-size: 1.5rem;
   font-weight: 700;
-  color: #00ffff;
+  color: hsl(var(--secondary));
   margin-bottom: 2rem;
   text-align: center;
-  text-shadow: 0 0 15px rgba(0, 255, 255, 0.5);
   position: relative;
   z-index: 2;
+}
+
+:global(.light) .categoryTitle {
+  color: hsl(var(--primary));
 }
 
 .skillsList {
@@ -98,15 +114,15 @@
 }
 
 .skillItem {
-  background: rgba(0, 0, 0, 0.5);
+  background: hsl(var(--muted));
   padding: 1.5rem;
   border-radius: 10px;
-  border: 1px solid rgba(0, 255, 255, 0.2);
+  border: 1px solid hsl(var(--border) / 0.5);
   transition: all 0.3s ease;
 }
 
 .skillItem:hover {
-  border-color: rgba(255, 0, 128, 0.4);
+  border-color: hsl(var(--primary) / 0.4);
   transform: translateX(5px);
 }
 
@@ -118,23 +134,22 @@
 }
 
 .skillName {
-  font-family: 'Orbitron', monospace;
-  font-size: 1.1rem;
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
   font-weight: 600;
-  color: #fff;
+  color: hsl(var(--foreground));
 }
 
 .skillLevel {
-  font-family: 'Orbitron', monospace;
-  font-size: 0.9rem;
-  color: #ff0080;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.875rem;
+  color: hsl(var(--primary));
   font-weight: 700;
-  text-shadow: 0 0 10px rgba(255, 0, 128, 0.5);
 }
 
 .skillBar {
   height: 8px;
-  background: rgba(255, 255, 255, 0.1);
+  background: hsl(var(--muted-foreground) / 0.2);
   border-radius: 4px;
   overflow: hidden;
   position: relative;
@@ -142,11 +157,10 @@
 
 .skillProgress {
   height: 100%;
-  background: linear-gradient(90deg, #ff0080, #00ffff);
+  background: linear-gradient(90deg, hsl(var(--primary)), hsl(var(--secondary)));
   border-radius: 4px;
   transition: width 2s ease-in-out;
   position: relative;
-  animation: glow 2s ease-in-out infinite alternate;
 }
 
 .skillProgress::after {
@@ -158,11 +172,6 @@
   bottom: 0;
   background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.3) 50%, transparent 100%);
   animation: shimmer 2s infinite;
-}
-
-@keyframes glow {
-  0% { box-shadow: 0 0 5px rgba(255, 0, 128, 0.5); }
-  100% { box-shadow: 0 0 15px rgba(0, 255, 255, 0.8); }
 }
 
 @keyframes shimmer {

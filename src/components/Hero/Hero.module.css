@@ -6,6 +6,8 @@
   padding: 6rem 2rem 2rem;
   position: relative;
   overflow: hidden;
+  background: hsl(var(--background));
+  transition: background-color 0.3s ease;
 }
 
 .container {
@@ -33,28 +35,47 @@
   background-clip: text;
   animation: gradient 3s ease infinite;
   margin-bottom: 1rem;
-  text-shadow: 0 0 30px rgba(255, 0, 128, 0.5);
+  text-shadow: 0 0 30px rgba(255, 0, 128, 0.3);
+}
+
+:global(.light) .name {
+  background: linear-gradient(45deg, #c2185b, #00838f, #c2185b);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .title {
   font-family: 'Orbitron', monospace;
   font-size: clamp(1.2rem, 3vw, 2rem);
-  font-weight: 600;
+  font-weight: 700;
   color: #00ffff;
   margin-bottom: 2rem;
-  text-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
   letter-spacing: 2px;
+  text-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
+}
+
+:global(.light) .title {
+  color: hsl(var(--primary));
+  text-shadow: none;
 }
 
 .cursor {
   animation: blink 1s infinite;
   color: #ff0080;
+  text-shadow: 0 0 10px rgba(255, 0, 128, 0.8);
+}
+
+:global(.light) .cursor {
+  color: hsl(var(--primary));
+  text-shadow: none;
 }
 
 .description {
   font-size: 1.1rem;
-  line-height: 1.6;
-  color: #cccccc;
+  line-height: 1.8;
+  color: hsl(var(--muted-foreground));
   margin-bottom: 3rem;
   max-width: 500px;
 }
@@ -67,40 +88,56 @@
 
 .primaryBtn, .secondaryBtn {
   padding: 1rem 2rem;
-  font-family: 'Orbitron', monospace;
+  font-family: 'Inter', sans-serif;
   font-weight: 600;
   font-size: 0.9rem;
   text-transform: uppercase;
-  letter-spacing: 1px;
+  letter-spacing: 0.5px;
   border: none;
   cursor: pointer;
   transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
+  border-radius: 8px;
 }
 
 .primaryBtn {
-  background: linear-gradient(45deg, #ff0080, #ff4080);
-  color: white;
-  box-shadow: 0 4px 20px rgba(255, 0, 128, 0.4);
+  background: linear-gradient(45deg, hsl(var(--primary)), hsl(var(--primary) / 0.8));
+  color: hsl(var(--primary-foreground));
+  box-shadow: 0 4px 20px hsl(var(--primary) / 0.4);
 }
 
 .secondaryBtn {
   background: transparent;
-  color: #00ffff;
-  border: 2px solid #00ffff;
-  box-shadow: 0 4px 20px rgba(0, 255, 255, 0.2);
+  color: hsl(var(--secondary));
+  border: 2px solid hsl(var(--secondary));
+  box-shadow: 0 4px 20px hsl(var(--secondary) / 0.2);
+}
+
+:global(.light) .secondaryBtn {
+  color: hsl(var(--primary));
+  border-color: hsl(var(--primary));
 }
 
 .primaryBtn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 30px rgba(255, 0, 128, 0.6);
+  box-shadow: 0 8px 30px hsl(var(--primary) / 0.6);
+}
+
+.primaryBtn:focus,
+.secondaryBtn:focus {
+  outline: 2px solid hsl(var(--ring));
+  outline-offset: 2px;
 }
 
 .secondaryBtn:hover {
-  background: rgba(0, 255, 255, 0.1);
+  background: hsl(var(--secondary) / 0.1);
   transform: translateY(-2px);
-  box-shadow: 0 8px 30px rgba(0, 255, 255, 0.4);
+  box-shadow: 0 8px 30px hsl(var(--secondary) / 0.4);
+}
+
+:global(.light) .secondaryBtn:hover {
+  background: hsl(var(--primary) / 0.1);
 }
 
 .visualContainer {
@@ -116,8 +153,8 @@
   width: 400px;
   height: 400px;
   background-image: 
-    linear-gradient(rgba(255, 0, 128, 0.3) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 0, 128, 0.3) 1px, transparent 1px);
+    linear-gradient(hsl(var(--primary) / 0.3) 1px, transparent 1px),
+    linear-gradient(90deg, hsl(var(--primary) / 0.3) 1px, transparent 1px);
   background-size: 20px 20px;
   animation: gridMove 10s linear infinite;
   border-radius: 50%;
@@ -127,7 +164,7 @@
   width: 200px;
   height: 200px;
   border-radius: 50%;
-  background: linear-gradient(45deg, #ff0080, #00ffff);
+  background: linear-gradient(45deg, hsl(var(--primary)), hsl(var(--secondary)));
   position: relative;
   display: flex;
   align-items: center;
@@ -142,7 +179,7 @@
   right: -20px;
   bottom: -20px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(255, 0, 128, 0.3), transparent);
+  background: radial-gradient(circle, hsl(var(--primary) / 0.3), transparent);
   animation: pulse 2s ease-in-out infinite alternate;
 }
 

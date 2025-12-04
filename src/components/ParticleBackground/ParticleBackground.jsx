@@ -10,6 +10,17 @@ const ParticleBackground = () => {
     const ctx = canvas.getContext('2d');
     let animationFrameId;
 
+    // Get theme-based colors
+    const getThemeColors = () => {
+      const isLight = document.documentElement.classList.contains('light');
+      return {
+        hueBase: isLight ? 220 : 300, // Blue for light, purple-pink for dark
+        hueRange: 60,
+        lineColor: isLight ? '#2563eb' : '#ff0080',
+        particleLightness: isLight ? 40 : 60
+      };
+    };
+
     // Set canvas size
     const resizeCanvas = () => {
       canvas.width = window.innerWidth;
@@ -31,7 +42,7 @@ const ParticleBackground = () => {
         this.vy = (Math.random() - 0.5) * 0.5;
         this.size = Math.random() * 2 + 0.5;
         this.opacity = Math.random() * 0.5 + 0.2;
-        this.hue = Math.random() * 60 + 300; // Purple to pink range
+        this.hueOffset = Math.random() * 60; // Random offset within range
       }
 
       update() {
@@ -45,9 +56,10 @@ const ParticleBackground = () => {
         this.opacity = Math.max(0.1, Math.min(0.7, this.opacity));
       }
 
-      draw() {
+      draw(themeColors) {
+        const hue = themeColors.hueBase + this.hueOffset;
         ctx.globalAlpha = this.opacity;
-        ctx.fillStyle = `hsl(${this.hue}, 100%, 60%)`;
+        ctx.fillStyle = `hsl(${hue}, 100%, ${themeColors.particleLightness}%)`;
         ctx.beginPath();
         ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
         ctx.fill();
@@ -61,16 +73,17 @@ const ParticleBackground = () => {
 
     // Animation loop
     const animate = () => {
+      const themeColors = getThemeColors();
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
       particles.forEach(particle => {
         particle.update();
-        particle.draw();
+        particle.draw(themeColors);
       });
 
       // Draw connections between nearby particles
       ctx.globalAlpha = 0.1;
-      ctx.strokeStyle = '#ff0080';
+      ctx.strokeStyle = themeColors.lineColor;
       ctx.lineWidth = 0.5;
 
       for (let i = 0; i < particles.length; i++) {

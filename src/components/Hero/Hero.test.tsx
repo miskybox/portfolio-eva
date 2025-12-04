@@ -26,13 +26,13 @@ describe('Hero Component', () => {
 
   it('should render the description', () => {
     render(<Hero />)
-    expect(screen.getByText(/Desarrolladora Full Stack/i)).toBeInTheDocument()
+    expect(screen.getByText(/Full Stack Developer specialized/i)).toBeInTheDocument()
   })
 
   it('should render CTA buttons', () => {
     render(<Hero />)
-    expect(screen.getByRole('button', { name: /Proyectos/i })).toBeInTheDocument()
-    expect(screen.getByRole('button', { name: /Contacto/i })).toBeInTheDocument()
+    expect(screen.getByRole('button', { name: /Projects/i })).toBeInTheDocument()
+    expect(screen.getByRole('button', { name: /Contact/i })).toBeInTheDocument()
   })
 
   it('should display the animated role title', () => {

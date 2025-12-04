@@ -6,7 +6,7 @@ const Hero = () => {
   const [displayText, setDisplayText] = useState('');
   const [currentIndex, setCurrentIndex] = useState(0);
   const [currentRole, setCurrentRole] = useState(0);
-  const roles = ['FULL STACK DEVELOPER', 'QA AUTOMATION ENGINEER', 'CIBERSEGURIDAD'];
+  const roles = ['FULL STACK DEVELOPER', 'QA AUTOMATION ENGINEER', 'CYBERSECURITY'];
 
   useEffect(() => {
     const fullText = roles[currentRole];
@@ -40,21 +40,21 @@ const Hero = () => {
             <span className={styles.cursor}>|</span>
           </h2>
           <p className={styles.description}>
-            Desarrolladora Full Stack especializada en React, Java Spring Boot y Testing E2E con Playwright.
-            Integro estándares de Ciberseguridad (OWASP) desde las fases tempranas del desarrollo.
+            Full Stack Developer specialized in React, Java Spring Boot, and E2E Testing with Playwright.
+            I integrate Cybersecurity standards (OWASP) from the early stages of development.
           </p>
           <div className={styles.cta}>
             <button 
               className={styles.primaryBtn}
               onClick={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })}
             >
-              VER PROYECTOS
+              VIEW PROJECTS
             </button>
             <button 
               className={styles.secondaryBtn}
               onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
             >
-              CONTACTO
+              CONTACT
             </button>
           </div>
         </div>

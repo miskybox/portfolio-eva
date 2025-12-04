@@ -23,7 +23,7 @@ vi.mock('./Skills.module.css', () => ({
 describe('Skills Component', () => {
   it('should render the skills section', () => {
     render(<Skills />)
-    expect(screen.getByText(/HABILIDADES TÉCNICAS/i)).toBeInTheDocument()
+    expect(screen.getByText(/TECHNICAL SKILLS/i)).toBeInTheDocument()
   })
 
   it('should display Frontend category', () => {
@@ -41,19 +41,19 @@ describe('Skills Component', () => {
     expect(screen.getByText('QA & Testing')).toBeInTheDocument()
   })
 
-  it('should display DevOps & Cloud category', () => {
+  it('should display Databases & Cloud category', () => {
     render(<Skills />)
-    expect(screen.getByText('DevOps & Cloud')).toBeInTheDocument()
+    expect(screen.getByText('Databases & Cloud')).toBeInTheDocument()
   })
 
-  it('should display Ciberseguridad category', () => {
+  it('should display Cybersecurity category', () => {
     render(<Skills />)
-    expect(screen.getByText('Ciberseguridad')).toBeInTheDocument()
+    expect(screen.getByText('Cybersecurity')).toBeInTheDocument()
   })
 
-  it('should display Herramientas category', () => {
+  it('should display Tools category', () => {
     render(<Skills />)
-    expect(screen.getByText('Herramientas')).toBeInTheDocument()
+    expect(screen.getByText('Tools')).toBeInTheDocument()
   })
 
   it('should display specific skills', () => {

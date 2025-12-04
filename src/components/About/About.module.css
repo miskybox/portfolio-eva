@@ -1,8 +1,9 @@
 
 .about {
   padding: 6rem 2rem;
-  background: linear-gradient(135deg, rgba(0, 0, 0, 0.9) 0%, rgba(20, 0, 40, 0.9) 100%);
+  background: hsl(var(--background));
   position: relative;
+  transition: background-color 0.3s ease;
 }
 
 .about::before {
@@ -13,9 +14,15 @@
   right: 0;
   bottom: 0;
   background-image: 
-    radial-gradient(circle at 20% 80%, rgba(255, 0, 128, 0.1) 0%, transparent 50%),
-    radial-gradient(circle at 80% 20%, rgba(0, 255, 255, 0.1) 0%, transparent 50%);
+    radial-gradient(circle at 20% 80%, hsl(var(--primary) / 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, hsl(var(--secondary) / 0.1) 0%, transparent 50%);
   pointer-events: none;
+}
+
+:global(.light) .about::before {
+  background-image: 
+    radial-gradient(circle at 20% 80%, hsl(var(--primary) / 0.05) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, hsl(var(--secondary) / 0.05) 0%, transparent 50%);
 }
 
 .container {
@@ -26,16 +33,15 @@
 }
 
 .title {
-  font-family: 'Orbitron', monospace;
+  font-family: 'Inter', sans-serif;
   font-size: clamp(2rem, 4vw, 3rem);
-  font-weight: 900;
+  font-weight: 800;
   text-align: center;
   margin-bottom: 4rem;
-  background: linear-gradient(45deg, #ff0080, #00ffff);
+  background: linear-gradient(45deg, hsl(var(--primary)), hsl(var(--secondary)));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  text-shadow: 0 0 30px rgba(255, 0, 128, 0.3);
 }
 
 .content {
@@ -47,16 +53,16 @@
 
 .textContent {
   padding: 2rem;
-  background: rgba(0, 0, 0, 0.5);
-  border: 1px solid rgba(255, 0, 128, 0.3);
+  background: hsl(var(--card));
+  border: 1px solid hsl(var(--border));
   border-radius: 10px;
   backdrop-filter: blur(10px);
 }
 
 .description {
   font-size: 1.1rem;
-  line-height: 1.7;
-  color: #cccccc;
+  line-height: 1.8;
+  color: hsl(var(--muted-foreground));
   margin-bottom: 2rem;
 }
 
@@ -70,30 +76,38 @@
 .highlight {
   text-align: center;
   padding: 1.5rem;
-  background: rgba(0, 255, 255, 0.1);
-  border: 1px solid rgba(0, 255, 255, 0.3);
+  background: hsl(var(--secondary) / 0.1);
+  border: 1px solid hsl(var(--secondary) / 0.3);
   border-radius: 10px;
   transition: all 0.3s ease;
 }
 
+:global(.light) .highlight {
+  background: hsl(var(--primary) / 0.05);
+  border-color: hsl(var(--primary) / 0.2);
+}
+
 .highlight:hover {
   transform: translateY(-5px);
-  box-shadow: 0 10px 30px rgba(0, 255, 255, 0.2);
+  box-shadow: 0 10px 30px hsl(var(--secondary) / 0.2);
 }
 
 .highlightNumber {
   display: block;
-  font-family: 'Orbitron', monospace;
+  font-family: 'Inter', sans-serif;
   font-size: 2rem;
-  font-weight: 900;
-  color: #00ffff;
-  text-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
+  font-weight: 800;
+  color: hsl(var(--secondary));
+}
+
+:global(.light) .highlightNumber {
+  color: hsl(var(--primary));
 }
 
 .highlightText {
   display: block;
   font-size: 0.9rem;
-  color: #cccccc;
+  color: hsl(var(--muted-foreground));
   margin-top: 0.5rem;
   text-transform: uppercase;
   letter-spacing: 1px;
@@ -101,19 +115,22 @@
 
 .experience {
   padding: 2rem;
-  background: rgba(0, 0, 0, 0.5);
-  border: 1px solid rgba(0, 255, 255, 0.3);
+  background: hsl(var(--card));
+  border: 1px solid hsl(var(--border));
   border-radius: 10px;
   backdrop-filter: blur(10px);
 }
 
 .sectionTitle {
-  font-family: 'Orbitron', monospace;
+  font-family: 'Inter', sans-serif;
   font-size: 1.5rem;
   font-weight: 700;
-  color: #00ffff;
+  color: hsl(var(--secondary));
   margin-bottom: 2rem;
-  text-shadow: 0 0 15px rgba(0, 255, 255, 0.5);
+}
+
+:global(.light) .sectionTitle {
+  color: hsl(var(--primary));
 }
 
 .timeline {
@@ -127,7 +144,7 @@
   top: 0;
   bottom: 0;
   width: 2px;
-  background: linear-gradient(180deg, #ff0080, #00ffff);
+  background: linear-gradient(180deg, hsl(var(--primary)), hsl(var(--secondary)));
 }
 
 .timelineItem {
@@ -143,29 +160,32 @@
   top: 0.5rem;
   width: 1rem;
   height: 1rem;
-  background: #ff0080;
+  background: hsl(var(--primary));
   border-radius: 50%;
-  box-shadow: 0 0 15px rgba(255, 0, 128, 0.7);
+  box-shadow: 0 0 15px hsl(var(--primary) / 0.7);
+}
+
+:global(.light) .timelineItem::before {
+  box-shadow: 0 0 10px hsl(var(--primary) / 0.4);
 }
 
 .timelineDate {
-  font-family: 'Orbitron', monospace;
+  font-family: 'Inter', sans-serif;
   font-size: 0.9rem;
-  color: #ff0080;
+  color: hsl(var(--primary));
   font-weight: 600;
   margin-bottom: 0.5rem;
-  text-shadow: 0 0 10px rgba(255, 0, 128, 0.5);
 }
 
 .timelineContent h4 {
   font-size: 1.2rem;
-  color: #fff;
+  color: hsl(var(--foreground));
   margin-bottom: 0.5rem;
   font-weight: 600;
 }
 
 .timelineContent p {
-  color: #cccccc;
+  color: hsl(var(--muted-foreground));
   line-height: 1.5;
 }
 

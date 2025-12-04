@@ -10,7 +10,8 @@ const Skills = () => {
         { name: "React", level: 90 },
         { name: "JavaScript (ES6+)", level: 88 },
         { name: "TypeScript", level: 85 },
-        { name: "HTML5/CSS3", level: 95 },
+        { name: "HTML5", level: 95 },
+        { name: "CSS3", level: 92 },
         { name: "Tailwind CSS", level: 88 },
         { name: "Bootstrap", level: 80 }
       ]
@@ -20,47 +21,46 @@ const Skills = () => {
       skills: [
         { name: "Java (Spring Boot)", level: 85 },
         { name: "Node.js (NestJS)", level: 80 },
-        { name: "Prisma ORM", level: 75 },
-        { name: "RESTful APIs", level: 88 },
-        { name: "PostgreSQL", level: 80 }
+        { name: "Prisma ORM", level: 75 }
       ]
     },
     {
       title: "QA & Testing",
       skills: [
         { name: "Playwright (E2E)", level: 85 },
-        { name: "Jest / Vitest", level: 80 },
+        { name: "Jest", level: 80 },
+        { name: "Vitest", level: 80 },
         { name: "JUnit", level: 75 },
         { name: "Testing Library", level: 80 },
-        { name: "Allure Reports", level: 75 }
+        { name: "Allure Reports", level: 75 },
+        { name: "POM Pattern", level: 82 }
       ]
     },
     {
-      title: "DevOps & Cloud",
+      title: "Databases & Cloud",
       skills: [
-        { name: "Git / Gitflow", level: 90 },
-        { name: "Docker (Básico)", level: 65 },
+        { name: "PostgreSQL", level: 80 },
         { name: "Supabase", level: 78 },
         { name: "Firebase", level: 75 },
         { name: "Vercel", level: 80 }
       ]
     },
     {
-      title: "Ciberseguridad",
+      title: "Tools",
       skills: [
-        { name: "Burp Suite", level: 70 },
-        { name: "OWASP ZAP", level: 70 },
-        { name: "Secure Coding", level: 75 },
-        { name: "OWASP Top 10", level: 78 }
+        { name: "Git", level: 90 },
+        { name: "Gitflow", level: 85 },
+        { name: "Docker (Basic)", level: 65 },
+        { name: "Postman", level: 88 },
+        { name: "Jira", level: 80 }
       ]
     },
     {
-      title: "Herramientas",
+      title: "Cybersecurity",
       skills: [
-        { name: "Postman", level: 88 },
-        { name: "Jira", level: 80 },
-        { name: "Scrum/Agile", level: 85 },
-        { name: "POM Pattern", level: 80 }
+        { name: "Burp Suite", level: 70 },
+        { name: "OWASP Juice Shop", level: 72 },
+        { name: "Secure Coding", level: 75 }
       ]
     }
   ];
@@ -68,7 +68,7 @@ const Skills = () => {
   return (
     <section id="skills" className={styles.skills}>
       <div className={styles.container}>
-        <h2 className={styles.title}>HABILIDADES TÉCNICAS</h2>
+        <h2 className={styles.title}>TECHNICAL SKILLS</h2>
         <div className={styles.skillsGrid}>
           {skillCategories.map((category, index) => (
             <div key={index} className={styles.skillCategory}>

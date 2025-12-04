@@ -1,0 +1,251 @@
+# Page snapshot
+
+```yaml
+- generic [ref=e2]:
+  - region "Notifications (F8)":
+    - list
+  - region "Notifications alt+T"
+  - generic [ref=e3]:
+    - banner [ref=e4]:
+      - generic [ref=e5]:
+        - generic [ref=e6]: EVA.DEV
+        - navigation [ref=e7]:
+          - button "ABOUT" [ref=e8] [cursor=pointer]
+          - button "SKILLS" [ref=e9] [cursor=pointer]
+          - button "PROJECTS" [ref=e10] [cursor=pointer]
+          - button "CONTACT" [ref=e11] [cursor=pointer]
+    - main [ref=e12]:
+      - generic [ref=e15]:
+        - heading "EVA SISALLI GUZMÁN" [level=1] [ref=e16]
+        - heading "QA AUTOMATION |" [level=2] [ref=e17]
+        - paragraph [ref=e18]: Desarrolladora Full Stack especializada en React, Java Spring Boot y Testing E2E con Playwright. Integro estándares de Ciberseguridad (OWASP) desde las fases tempranas del desarrollo.
+        - generic [ref=e19]:
+          - button "VER PROYECTOS" [ref=e20] [cursor=pointer]
+          - button "CONTACTO" [ref=e21] [cursor=pointer]
+      - generic [ref=e27]:
+        - heading "SOBRE MÍ" [level=2] [ref=e28]
+        - generic [ref=e29]:
+          - generic [ref=e30]:
+            - paragraph [ref=e31]: "Desarrolladora Full Stack Junior especializada en el ecosistema Java y JavaScript/TypeScript. Mi enfoque va más allá de la escritura de código: integro estrategias de QA Automation (Playwright) y estándares de Ciberseguridad (OWASP) desde las fases tempranas del desarrollo."
+            - paragraph [ref=e32]: Experiencia práctica en la creación de SPA escalables, consumo de APIs RESTful y gestión de bases de datos relacionales. Busco aportar mi capacidad analítica y proactividad en un equipo técnico que valore el código limpio, seguro y testeable.
+            - generic [ref=e33]:
+              - generic [ref=e34]:
+                - generic [ref=e35]: 2+
+                - generic [ref=e36]: Años en Tech
+              - generic [ref=e37]:
+                - generic [ref=e38]: "3"
+                - generic [ref=e39]: Bootcamps
+              - generic [ref=e40]:
+                - generic [ref=e41]: E2E
+                - generic [ref=e42]: QA Automation
+          - generic [ref=e43]:
+            - heading "EXPERIENCIA" [level=3] [ref=e44]
+            - generic [ref=e45]:
+              - generic [ref=e46]:
+                - generic [ref=e47]: "2025"
+                - generic [ref=e48]:
+                  - heading "Basetis – QA Automation Engineer" [level=4] [ref=e49]
+                  - paragraph [ref=e50]: Testing E2E con Playwright y TypeScript. Implementación de POM y Allure Reports.
+              - generic [ref=e51]:
+                - generic [ref=e52]: 2024 - 2025
+                - generic [ref=e53]:
+                  - heading "Factoría F5 – FemCoders" [level=4] [ref=e54]
+                  - paragraph [ref=e55]: Desarrollo Full Stack con Java Spring Boot, NestJS y Ciberseguridad. Participación en HackBarna AI Summit 25.
+              - generic [ref=e56]:
+                - generic [ref=e57]: 2023 - 2024
+                - generic [ref=e58]:
+                  - heading "IT Academy – Barcelona Activa" [level=4] [ref=e59]
+                  - paragraph [ref=e60]: Desarrollo Frontend con React. Liderazgo del proyecto "Forum Viajeros" (SPA interactiva).
+              - generic [ref=e61]:
+                - generic [ref=e62]: 2006 - 2022
+                - generic [ref=e63]:
+                  - heading "Sector Hotelería y Restauración" [level=4] [ref=e64]
+                  - paragraph [ref=e65]: +15 años de gestión de equipos, liderazgo y resolución de crisis.
+      - generic [ref=e67]:
+        - heading "HABILIDADES TÉCNICAS" [level=2] [ref=e68]
+        - generic [ref=e69]:
+          - generic [ref=e70]:
+            - heading "Frontend" [level=3] [ref=e71]
+            - generic [ref=e72]:
+              - generic [ref=e74]:
+                - generic [ref=e75]: React
+                - generic [ref=e76]: 90%
+              - generic [ref=e80]:
+                - generic [ref=e81]: JavaScript (ES6+)
+                - generic [ref=e82]: 88%
+              - generic [ref=e86]:
+                - generic [ref=e87]: TypeScript
+                - generic [ref=e88]: 85%
+              - generic [ref=e92]:
+                - generic [ref=e93]: HTML5/CSS3
+                - generic [ref=e94]: 95%
+              - generic [ref=e98]:
+                - generic [ref=e99]: Tailwind CSS
+                - generic [ref=e100]: 88%
+              - generic [ref=e104]:
+                - generic [ref=e105]: Bootstrap
+                - generic [ref=e106]: 80%
+          - generic [ref=e109]:
+            - heading "Backend" [level=3] [ref=e110]
+            - generic [ref=e111]:
+              - generic [ref=e113]:
+                - generic [ref=e114]: Java (Spring Boot)
+                - generic [ref=e115]: 85%
+              - generic [ref=e119]:
+                - generic [ref=e120]: Node.js (NestJS)
+                - generic [ref=e121]: 80%
+              - generic [ref=e125]:
+                - generic [ref=e126]: Prisma ORM
+                - generic [ref=e127]: 75%
+              - generic [ref=e131]:
+                - generic [ref=e132]: RESTful APIs
+                - generic [ref=e133]: 88%
+              - generic [ref=e137]:
+                - generic [ref=e138]: PostgreSQL
+                - generic [ref=e139]: 80%
+          - generic [ref=e142]:
+            - heading "QA & Testing" [level=3] [ref=e143]
+            - generic [ref=e144]:
+              - generic [ref=e146]:
+                - generic [ref=e147]: Playwright (E2E)
+                - generic [ref=e148]: 85%
+              - generic [ref=e152]:
+                - generic [ref=e153]: Jest / Vitest
+                - generic [ref=e154]: 80%
+              - generic [ref=e158]:
+                - generic [ref=e159]: JUnit
+                - generic [ref=e160]: 75%
+              - generic [ref=e164]:
+                - generic [ref=e165]: Testing Library
+                - generic [ref=e166]: 80%
+              - generic [ref=e170]:
+                - generic [ref=e171]: Allure Reports
+                - generic [ref=e172]: 75%
+          - generic [ref=e175]:
+            - heading "DevOps & Cloud" [level=3] [ref=e176]
+            - generic [ref=e177]:
+              - generic [ref=e179]:
+                - generic [ref=e180]: Git / Gitflow
+                - generic [ref=e181]: 90%
+              - generic [ref=e185]:
+                - generic [ref=e186]: Docker (Básico)
+                - generic [ref=e187]: 65%
+              - generic [ref=e191]:
+                - generic [ref=e192]: Supabase
+                - generic [ref=e193]: 78%
+              - generic [ref=e197]:
+                - generic [ref=e198]: Firebase
+                - generic [ref=e199]: 75%
+              - generic [ref=e203]:
+                - generic [ref=e204]: Vercel
+                - generic [ref=e205]: 80%
+          - generic [ref=e208]:
+            - heading "Ciberseguridad" [level=3] [ref=e209]
+            - generic [ref=e210]:
+              - generic [ref=e212]:
+                - generic [ref=e213]: Burp Suite
+                - generic [ref=e214]: 70%
+              - generic [ref=e218]:
+                - generic [ref=e219]: OWASP ZAP
+                - generic [ref=e220]: 70%
+              - generic [ref=e224]:
+                - generic [ref=e225]: Secure Coding
+                - generic [ref=e226]: 75%
+              - generic [ref=e230]:
+                - generic [ref=e231]: OWASP Top 10
+                - generic [ref=e232]: 78%
+          - generic [ref=e235]:
+            - heading "Herramientas" [level=3] [ref=e236]
+            - generic [ref=e237]:
+              - generic [ref=e239]:
+                - generic [ref=e240]: Postman
+                - generic [ref=e241]: 88%
+              - generic [ref=e245]:
+                - generic [ref=e246]: Jira
+                - generic [ref=e247]: 80%
+              - generic [ref=e251]:
+                - generic [ref=e252]: Scrum/Agile
+                - generic [ref=e253]: 85%
+              - generic [ref=e257]:
+                - generic [ref=e258]: POM Pattern
+                - generic [ref=e259]: 80%
+      - generic [ref=e263]:
+        - heading "PROYECTOS DESTACADOS" [level=2] [ref=e264]
+        - generic [ref=e265]:
+          - generic [ref=e266]:
+            - generic [ref=e267]:
+              - heading "🧵 Urdimbre" [level=3] [ref=e268]
+              - generic [ref=e269]: DESTACADO
+            - paragraph [ref=e270]: Sistema de gestión de actividades con dashboards por roles (Admin / Organizador). Desarrollo full-stack con autenticación y autorización.
+            - generic [ref=e271]:
+              - generic [ref=e272]: Java
+              - generic [ref=e273]: Spring Boot
+              - generic [ref=e274]: React
+              - generic [ref=e275]: PostgreSQL
+            - link "Ver Proyecto" [ref=e277] [cursor=pointer]:
+              - /url: https://github.com/miskybox/Urdimbre_Frontend.git
+              - text: Ver Proyecto
+              - img [ref=e278]
+          - generic [ref=e281]:
+            - generic [ref=e282]:
+              - heading "🌍 Forum Viajeros" [level=3] [ref=e283]
+              - generic [ref=e284]: DESTACADO
+            - paragraph [ref=e285]: SPA para compartir experiencias viajeras. Interfaz moderna y responsive con funcionalidades de comunidad.
+            - generic [ref=e286]:
+              - generic [ref=e287]: React
+              - generic [ref=e288]: Tailwind CSS
+              - generic [ref=e289]: API REST
+            - link "Ver Proyecto" [ref=e291] [cursor=pointer]:
+              - /url: https://github.com/miskybox/Forum_frontend.git
+              - text: Ver Proyecto
+              - img [ref=e292]
+          - generic [ref=e295]:
+            - heading "🧪 Playwright QA Tests" [level=3] [ref=e297]
+            - paragraph [ref=e298]: Este proyecto automatiza pruebas sobre la tienda de ejemplo Polymer Shop usando Playwright, con una estrategia clara basada en riesgo y flujos críticos de usuario.
+            - generic [ref=e299]:
+              - generic [ref=e300]: Playwright
+              - generic [ref=e301]: TypeScript
+              - generic [ref=e302]: Testing
+            - link "Ver Proyecto" [ref=e304] [cursor=pointer]:
+              - /url: https://github.com/miskybox/project-qa-tests.git
+              - text: Ver Proyecto
+              - img [ref=e305]
+      - generic [ref=e309]:
+        - heading "CONTACTO" [level=2] [ref=e310]
+        - generic [ref=e311]:
+          - generic [ref=e312]:
+            - heading "¡Conectemos!" [level=3] [ref=e313]
+            - paragraph [ref=e314]: ¿Tienes un proyecto en mente? ¿Quieres colaborar? ¡Me encantaría escuchar de ti! Estoy siempre abierta a nuevas oportunidades y desafíos.
+            - generic [ref=e315]:
+              - link "GitHub" [ref=e316] [cursor=pointer]:
+                - /url: https://github.com/miskybox
+                - img [ref=e317]
+                - generic [ref=e320]: GitHub
+              - link "LinkedIn" [ref=e321] [cursor=pointer]:
+                - /url: https://linkedin.com/in/eva-sisalli-guzman
+                - img [ref=e322]
+                - generic [ref=e326]: LinkedIn
+              - link "e.sisalli@yahoo.com" [ref=e327] [cursor=pointer]:
+                - /url: mailto:e.sisalli@yahoo.com
+                - img [ref=e328]
+                - generic [ref=e331]: e.sisalli@yahoo.com
+          - generic [ref=e332]:
+            - generic [ref=e333]:
+              - generic [ref=e334]: Nombre
+              - textbox "Nombre" [ref=e335]
+            - generic [ref=e336]:
+              - generic [ref=e337]: Email
+              - textbox "Email" [ref=e338]
+            - generic [ref=e339]:
+              - generic [ref=e340]: Mensaje
+              - textbox "Mensaje" [ref=e341]
+            - button "ENVIAR MENSAJE" [ref=e342] [cursor=pointer]
+    - contentinfo [ref=e343]:
+      - generic [ref=e345]:
+        - generic [ref=e346]:
+          - heading "EVA SISALLI GUZMÁN" [level=3] [ref=e347]
+          - paragraph [ref=e348]: Full Stack Developer
+        - generic [ref=e349]:
+          - paragraph [ref=e350]: © 2025 Eva Sisalli Guzmán. Todos los derechos reservados.
+          - paragraph [ref=e351]: Desarrollado con React + Vite
+```

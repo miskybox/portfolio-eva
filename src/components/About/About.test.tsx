@@ -18,12 +18,12 @@ vi.mock('./About.module.css', () => ({
 describe('About Component', () => {
   it('should render the about section', () => {
     render(<About />)
-    expect(screen.getByText(/SOBRE MÍ/i)).toBeInTheDocument()
+    expect(screen.getByText(/ABOUT ME/i)).toBeInTheDocument()
   })
 
   it('should display professional profile text', () => {
     render(<About />)
-    expect(screen.getByText(/Desarrolladora Full Stack Junior/i)).toBeInTheDocument()
+    expect(screen.getByText(/Junior Full Stack Developer/i)).toBeInTheDocument()
   })
 
   it('should mention key technologies', () => {
@@ -45,7 +45,7 @@ describe('About Component', () => {
 
   it('should display experience section heading', () => {
     render(<About />)
-    expect(screen.getByRole('heading', { name: /EXPERIENCIA/i })).toBeInTheDocument()
+    expect(screen.getByRole('heading', { name: /EXPERIENCE/i })).toBeInTheDocument()
   })
 
   it('should display Basetis experience', () => {

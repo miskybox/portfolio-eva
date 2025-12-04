@@ -12,8 +12,8 @@ const Footer = () => {
             <p className={styles.brandSubtitle}>Full Stack Developer</p>
           </div>
           <div className={styles.copyright}>
-            <p>&copy; {new Date().getFullYear()} Eva Sisalli Guzmán. Todos los derechos reservados.</p>
-            <p className={styles.tech}>Desarrollado con React + Vite</p>
+            <p>&copy; {new Date().getFullYear()} Eva Sisalli Guzmán. All rights reserved.</p>
+            <p className={styles.tech}>Built with React + Vite</p>
           </div>
         </div>
         <div className={styles.footerGlow}></div>

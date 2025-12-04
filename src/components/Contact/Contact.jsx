@@ -34,27 +34,27 @@ const Contact = () => {
     const errors = {};
     
     if (!formData.name.trim()) {
-      errors.name = 'El nombre es requerido';
+      errors.name = 'Name is required';
     } else if (formData.name.length < 2) {
-      errors.name = 'El nombre debe tener al menos 2 caracteres';
+      errors.name = 'Name must be at least 2 characters';
     } else if (formData.name.length > 50) {
-      errors.name = 'El nombre no puede exceder 50 caracteres';
+      errors.name = 'Name cannot exceed 50 characters';
     }
 
     if (!formData.email.trim()) {
-      errors.email = 'El email es requerido';
+      errors.email = 'Email is required';
     } else if (!validateEmail(formData.email)) {
-      errors.email = 'El formato del email no es válido';
+      errors.email = 'Invalid email format';
     } else if (formData.email.length > 100) {
-      errors.email = 'El email no puede exceder 100 caracteres';
+      errors.email = 'Email cannot exceed 100 characters';
     }
 
     if (!formData.message.trim()) {
-      errors.message = 'El mensaje es requerido';
+      errors.message = 'Message is required';
     } else if (formData.message.length < 10) {
-      errors.message = 'El mensaje debe tener al menos 10 caracteres';
+      errors.message = 'Message must be at least 10 characters';
     } else if (formData.message.length > 500) {
-      errors.message = 'El mensaje no puede exceder 500 caracteres';
+      errors.message = 'Message cannot exceed 500 characters';
     }
 
     return errors;
@@ -85,7 +85,7 @@ const Contact = () => {
 
       
       if (!sanitizedData.name || !sanitizedData.email || !sanitizedData.message) {
-        throw new Error('Datos inválidos después de la sanitización');
+        throw new Error('Invalid data after sanitization');
       }
 
       
@@ -114,7 +114,7 @@ const Contact = () => {
           setSubmitStatus(null);
         }, 5000);
       } else {
-        throw new Error('Error en el envío');
+        throw new Error('Submission error');
       }
 
     } catch (error) {
@@ -159,13 +159,13 @@ const Contact = () => {
   return (
     <section id="contact" className={styles.contact}>
       <div className={styles.container}>
-        <h2 className={styles.title}>CONTACTO</h2>
+        <h2 className={styles.title}>CONTACT</h2>
         <div className={styles.content}>
           <div className={styles.contactInfo}>
-            <h3 className={styles.subtitle}>¡Conectemos!</h3>
+            <h3 className={styles.subtitle}>Let's Connect!</h3>
             <p className={styles.description}>
-              ¿Tienes un proyecto en mente? ¿Quieres colaborar? ¡Me encantaría escuchar de ti! 
-              Estoy siempre abierta a nuevas oportunidades y desafíos.
+              Have a project in mind? Want to collaborate? I'd love to hear from you! 
+              I'm always open to new opportunities and challenges.
             </p>
             <div className={styles.socialLinks}>
               <a
@@ -178,7 +178,7 @@ const Contact = () => {
                 <span>GitHub</span>
               </a>
               <a
-                href="https://linkedin.com/in/eva-sisalli-guzman"
+                href="https://www.linkedin.com/in/eva-sisalli-guzman/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className={styles.socialLink}
@@ -201,20 +201,20 @@ const Contact = () => {
             {submitStatus === 'success' && (
               <div className={styles.statusMessage + ' ' + styles.success}>
                 <CheckCircle size={20} />
-                <span>¡Mensaje enviado correctamente! Te responderé pronto.</span>
+                <span>Message sent successfully! I'll get back to you soon.</span>
               </div>
             )}
             
             {submitStatus === 'error' && (
               <div className={styles.statusMessage + ' ' + styles.error}>
                 <XCircle size={20} />
-                <span>Error al enviar el mensaje. Por favor, verifica los datos.</span>
+                <span>Error sending message. Please check your data.</span>
               </div>
             )}
 
             <div className={styles.formGroup}>
               <label htmlFor="name" className={styles.label}>
-                Nombre
+                Name
               </label>
               <input
                 type="text"
@@ -252,7 +252,7 @@ const Contact = () => {
 
             <div className={styles.formGroup}>
               <label htmlFor="message" className={styles.label}>
-                Mensaje
+                Message
               </label>
               <textarea
                 id="message"
@@ -274,7 +274,7 @@ const Contact = () => {
               className={styles.submitBtn}
               disabled={isSubmitting}
             >
-              {isSubmitting ? 'ENVIANDO...' : 'ENVIAR MENSAJE'}
+              {isSubmitting ? 'SENDING...' : 'SEND MESSAGE'}
             </button>
           </form>
         </div>

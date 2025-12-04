@@ -6,23 +6,23 @@ const About = () => {
   return (
     <section id="about" className={styles.about}>
       <div className={styles.container}>
-        <h2 className={styles.title}>SOBRE MÍ</h2>
+        <h2 className={styles.title}>ABOUT ME</h2>
         <div className={styles.content}>
           <div className={styles.textContent}>
             <p className={styles.description}>
-              Desarrolladora Full Stack Junior especializada en el ecosistema Java y JavaScript/TypeScript. 
-              Mi enfoque va más allá de la escritura de código: integro estrategias de QA Automation 
-              (Playwright) y estándares de Ciberseguridad (OWASP) desde las fases tempranas del desarrollo.
+              Junior Full Stack Developer specialized in the Java and JavaScript/TypeScript ecosystem. 
+              My approach goes beyond writing code: I integrate QA Automation strategies 
+              (Playwright) and Cybersecurity standards (OWASP) from the early stages of development.
             </p>
             <p className={styles.description}>
-              Experiencia práctica en la creación de SPA escalables, consumo de APIs RESTful y gestión 
-              de bases de datos relacionales. Busco aportar mi capacidad analítica y proactividad en un 
-              equipo técnico que valore el código limpio, seguro y testeable.
+              Practical experience in creating scalable SPAs, consuming RESTful APIs, and managing 
+              relational databases. I aim to contribute my analytical skills and proactivity to a 
+              technical team that values clean, secure, and testable code.
             </p>
             <div className={styles.highlights}>
               <div className={styles.highlight}>
                 <span className={styles.highlightNumber}>2+</span>
-                <span className={styles.highlightText}>Años en Tech</span>
+                <span className={styles.highlightText}>Years in Tech</span>
               </div>
               <div className={styles.highlight}>
                 <span className={styles.highlightNumber}>3</span>
@@ -35,34 +35,34 @@ const About = () => {
             </div>
           </div>
           <div className={styles.experience}>
-            <h3 className={styles.sectionTitle}>EXPERIENCIA</h3>
+            <h3 className={styles.sectionTitle}>EXPERIENCE</h3>
             <div className={styles.timeline}>
               <div className={styles.timelineItem}>
                 <div className={styles.timelineDate}>2025</div>
                 <div className={styles.timelineContent}>
                   <h4>Basetis – QA Automation Engineer</h4>
-                  <p>Testing E2E con Playwright y TypeScript. Implementación de POM y Allure Reports.</p>
+                  <p>E2E Testing with Playwright and TypeScript. POM implementation and Allure Reports.</p>
                 </div>
               </div>
               <div className={styles.timelineItem}>
                 <div className={styles.timelineDate}>2024 - 2025</div>
                 <div className={styles.timelineContent}>
                   <h4>Factoría F5 – FemCoders</h4>
-                  <p>Desarrollo Full Stack con Java Spring Boot, NestJS y Ciberseguridad. Participación en HackBarna AI Summit 25.</p>
+                  <p>Full Stack Development with Java Spring Boot, NestJS and Cybersecurity. Participation in HackBarna AI Summit 25.</p>
                 </div>
               </div>
               <div className={styles.timelineItem}>
                 <div className={styles.timelineDate}>2023 - 2024</div>
                 <div className={styles.timelineContent}>
                   <h4>IT Academy – Barcelona Activa</h4>
-                  <p>Desarrollo Frontend con React. Liderazgo del proyecto "Forum Viajeros" (SPA interactiva).</p>
+                  <p>Frontend Development with React. Leadership of "Forum Viajeros" project (interactive SPA).</p>
                 </div>
               </div>
               <div className={styles.timelineItem}>
                 <div className={styles.timelineDate}>2006 - 2022</div>
                 <div className={styles.timelineContent}>
-                  <h4>Sector Hotelería y Restauración</h4>
-                  <p>+15 años de gestión de equipos, liderazgo y resolución de crisis.</p>
+                  <h4>Hospitality & Restaurant Industry</h4>
+                  <p>+15 years of team management, leadership and crisis resolution.</p>
                 </div>
               </div>
             </div>
