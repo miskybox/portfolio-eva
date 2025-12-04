@@ -16,16 +16,14 @@ const Header = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Check for saved theme preference or system preference
+  // Check for saved theme preference - default to dark mode
   useEffect(() => {
     const savedTheme = localStorage.getItem('theme');
     if (savedTheme) {
       setIsDark(savedTheme === 'dark');
       document.documentElement.classList.toggle('light', savedTheme === 'light');
-    } else if (window.matchMedia('(prefers-color-scheme: light)').matches) {
-      setIsDark(false);
-      document.documentElement.classList.add('light');
     }
+    // If no saved theme, keep dark mode (default)
   }, []);
 
   const toggleTheme = () => {
