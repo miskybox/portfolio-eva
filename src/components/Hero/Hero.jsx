@@ -6,7 +6,7 @@ const Hero = () => {
   const [displayText, setDisplayText] = useState('');
   const [currentIndex, setCurrentIndex] = useState(0);
   const [currentRole, setCurrentRole] = useState(0);
-  const roles = ['FULL STACK DEVELOPER', 'QA AUTOMATION ENGINEER', 'CYBERSECURITY'];
+  const roles = ['FULL STACK DEVELOPER', 'QA AUTOMATION', 'CYBERSECURITY'];
 
   useEffect(() => {
     const fullText = roles[currentRole];
