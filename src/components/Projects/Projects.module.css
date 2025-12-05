@@ -94,18 +94,19 @@
 
 .projectCard:hover .projectTitle,
 .projectCard:hover .projectDescription {
-  color: #000000;
+  color: #000000 !important;
+  -webkit-text-fill-color: #000000 !important;
 }
 
 .projectCard:hover .techTag {
-  background: rgba(255, 255, 255, 0.3);
-  color: #000000;
-  border-color: rgba(0, 0, 0, 0.2);
+  background: rgba(255, 255, 255, 0.5);
+  color: #000000 !important;
+  border-color: rgba(0, 0, 0, 0.3);
 }
 
 .projectCard:hover .featuredBadge {
-  background: rgba(255, 255, 255, 0.9);
-  color: #000000;
+  background: rgba(255, 255, 255, 0.95);
+  color: #000000 !important;
 }
 
 .projectCard:hover .projectLink {
@@ -120,13 +121,14 @@
 
 :global(.light) .projectCard:hover .projectTitle,
 :global(.light) .projectCard:hover .projectDescription {
-  color: #000000;
+  color: #000000 !important;
+  -webkit-text-fill-color: #000000 !important;
 }
 
 :global(.light) .projectCard:hover .techTag {
-  background: rgba(255, 255, 255, 0.4);
-  color: #000000;
-  border-color: rgba(0, 0, 0, 0.2);
+  background: rgba(255, 255, 255, 0.6);
+  color: #000000 !important;
+  border-color: rgba(0, 0, 0, 0.3);
 }
 
 :global(.light) .projectCard:hover .projectLink {

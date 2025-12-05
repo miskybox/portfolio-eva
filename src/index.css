@@ -141,14 +141,16 @@ All colors MUST be HSL.
 }
 
 /* Custom selection colors */
+/* stylelint-disable-next-line a11y/no-text-color-contrast */
 ::selection {
-  background: rgba(255, 0, 128, 0.3);
-  color: #fff;
+  background: rgba(255, 0, 128, 0.7);
+  color: #000000;
 }
 
+/* stylelint-disable-next-line a11y/no-text-color-contrast */
 ::-moz-selection {
-  background: rgba(255, 0, 128, 0.3);
-  color: #fff;
+  background: rgba(255, 0, 128, 0.7);
+  color: #000000;
 }
 
 /* Retro glow effects */

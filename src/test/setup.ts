@@ -1,7 +1,7 @@
 import '@testing-library/jest-dom'
 
-// Mock window.matchMedia for tests
-Object.defineProperty(window, 'matchMedia', {
+// Mock matchMedia for tests
+Object.defineProperty(globalThis, 'matchMedia', {
   writable: true,
   value: (query: string) => ({
     matches: false,
@@ -22,6 +22,6 @@ const localStorageMock = {
   removeItem: () => {},
   clear: () => {},
 }
-Object.defineProperty(window, 'localStorage', {
+Object.defineProperty(globalThis, 'localStorage', {
   value: localStorageMock,
 })

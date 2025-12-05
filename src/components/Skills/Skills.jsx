@@ -70,12 +70,12 @@ const Skills = () => {
       <div className={styles.container}>
         <h2 className={styles.title}>TECHNICAL SKILLS</h2>
         <div className={styles.skillsGrid}>
-          {skillCategories.map((category, index) => (
-            <div key={index} className={styles.skillCategory}>
+          {skillCategories.map((category) => (
+            <div key={category.title} className={styles.skillCategory}>
               <h3 className={styles.categoryTitle}>{category.title}</h3>
               <div className={styles.skillsList}>
-                {category.skills.map((skill, skillIndex) => (
-                  <div key={skillIndex} className={styles.skillItem}>
+                {category.skills.map((skill) => (
+                  <div key={skill.name} className={styles.skillItem}>
                     <div className={styles.skillHeader}>
                       <span className={styles.skillName}>{skill.name}</span>
                       <span className={styles.skillLevel}>{skill.level}%</span>

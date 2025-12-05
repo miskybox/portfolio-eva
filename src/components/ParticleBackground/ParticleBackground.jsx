@@ -2,6 +2,37 @@
 import React, { useEffect, useRef } from 'react';
 import styles from './ParticleBackground.module.css';
 
+// Factory function to create particle objects (avoids class 'this' in functional component)
+const createParticle = (canvasWidth, canvasHeight) => ({
+  x: Math.random() * canvasWidth,
+  y: Math.random() * canvasHeight,
+  vx: (Math.random() - 0.5) * 0.5,
+  vy: (Math.random() - 0.5) * 0.5,
+  size: Math.random() * 2 + 0.5,
+  opacity: Math.random() * 0.5 + 0.2,
+  hueOffset: Math.random() * 60
+});
+
+const updateParticle = (particle, canvasWidth, canvasHeight) => {
+  particle.x += particle.vx;
+  particle.y += particle.vy;
+
+  if (particle.x < 0 || particle.x > canvasWidth) particle.vx *= -1;
+  if (particle.y < 0 || particle.y > canvasHeight) particle.vy *= -1;
+
+  particle.opacity += (Math.random() - 0.5) * 0.02;
+  particle.opacity = Math.max(0.1, Math.min(0.7, particle.opacity));
+};
+
+const drawParticle = (ctx, particle, themeColors) => {
+  const hue = themeColors.hueBase + particle.hueOffset;
+  ctx.globalAlpha = particle.opacity;
+  ctx.fillStyle = `hsl(${hue}, 100%, ${themeColors.particleLightness}%)`;
+  ctx.beginPath();
+  ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
+  ctx.fill();
+};
+
 const ParticleBackground = () => {
   const canvasRef = useRef(null);
 
@@ -14,7 +45,7 @@ const ParticleBackground = () => {
     const getThemeColors = () => {
       const isLight = document.documentElement.classList.contains('light');
       return {
-        hueBase: isLight ? 220 : 300, // Blue for light, purple-pink for dark
+        hueBase: isLight ? 220 : 300,
         hueRange: 60,
         lineColor: isLight ? '#2563eb' : '#ff0080',
         particleLightness: isLight ? 40 : 60
@@ -30,45 +61,11 @@ const ParticleBackground = () => {
     resizeCanvas();
     window.addEventListener('resize', resizeCanvas);
 
-    // Particle system
+    // Initialize particles
     const particles = [];
     const particleCount = 100;
-
-    class Particle {
-      constructor() {
-        this.x = Math.random() * canvas.width;
-        this.y = Math.random() * canvas.height;
-        this.vx = (Math.random() - 0.5) * 0.5;
-        this.vy = (Math.random() - 0.5) * 0.5;
-        this.size = Math.random() * 2 + 0.5;
-        this.opacity = Math.random() * 0.5 + 0.2;
-        this.hueOffset = Math.random() * 60; // Random offset within range
-      }
-
-      update() {
-        this.x += this.vx;
-        this.y += this.vy;
-
-        if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
-        if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
-
-        this.opacity += (Math.random() - 0.5) * 0.02;
-        this.opacity = Math.max(0.1, Math.min(0.7, this.opacity));
-      }
-
-      draw(themeColors) {
-        const hue = themeColors.hueBase + this.hueOffset;
-        ctx.globalAlpha = this.opacity;
-        ctx.fillStyle = `hsl(${hue}, 100%, ${themeColors.particleLightness}%)`;
-        ctx.beginPath();
-        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-        ctx.fill();
-      }
-    }
-
-    // Initialize particles
     for (let i = 0; i < particleCount; i++) {
-      particles.push(new Particle());
+      particles.push(createParticle(canvas.width, canvas.height));
     }
 
     // Animation loop
@@ -76,10 +73,10 @@ const ParticleBackground = () => {
       const themeColors = getThemeColors();
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-      particles.forEach(particle => {
-        particle.update();
-        particle.draw(themeColors);
-      });
+      for (const particle of particles) {
+        updateParticle(particle, canvas.width, canvas.height);
+        drawParticle(ctx, particle, themeColors);
+      }
 
       // Draw connections between nearby particles
       ctx.globalAlpha = 0.1;
@@ -90,7 +87,7 @@ const ParticleBackground = () => {
         for (let j = i + 1; j < particles.length; j++) {
           const dx = particles[i].x - particles[j].x;
           const dy = particles[i].y - particles[j].y;
-          const distance = Math.sqrt(dx * dx + dy * dy);
+          const distance = Math.hypot(dx, dy);
 
           if (distance < 100) {
             ctx.beginPath();

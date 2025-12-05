@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import styles from './Contact.module.css';
 import { Github, Linkedin, Mail, CheckCircle, XCircle } from 'lucide-react';
 
@@ -12,15 +12,31 @@ const Contact = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState(null); 
   const [validationErrors, setValidationErrors] = useState({});
-
   
+  // Security: Rate limiting
+  const lastSubmitTime = useRef(0);
+  const submitCount = useRef(0);
+  const RATE_LIMIT_MS = 30000; // 30 seconds between submissions
+  const MAX_SUBMISSIONS = 3; // Max 3 submissions per session
+
+  // Security: Honeypot field (trap for bots)
+  const [honeypot, setHoneypot] = useState('');
+
+  // Security: Enhanced XSS sanitization
   const sanitizeText = (text) => {
+    if (typeof text !== 'string') return '';
+    
     return text
-      .replace(/[<>]/g, '') 
-      .replace(/javascript:/gi, '') 
-      .replace(/on\w+=/gi, '') 
-      .replace(/script/gi, '') 
-      .trim();
+      .replaceAll(/[<>"'`]/g, '') // Remove dangerous characters
+      .replaceAll(/javascript:/gi, '') 
+      .replaceAll(/on\w+\s*=/gi, '') // Event handlers
+      .replaceAll(/data:/gi, '') // Data URLs
+      .replaceAll(/vbscript:/gi, '')
+      .replaceAll(/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi, '')
+      .replaceAll(/expression\s*\(/gi, '') // CSS expressions
+      .replaceAll(/url\s*\(/gi, '') // CSS url()
+      .trim()
+      .slice(0, 1000); // Max length protection
   };
 
   
@@ -63,6 +79,25 @@ const Contact = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     
+    // Security: Check honeypot (bot trap)
+    if (honeypot) {
+      console.warn('Bot detected');
+      return;
+    }
+
+    // Security: Rate limiting
+    const now = Date.now();
+    if (now - lastSubmitTime.current < RATE_LIMIT_MS) {
+      setValidationErrors({ form: 'Please wait before submitting again' });
+      setSubmitStatus('error');
+      return;
+    }
+
+    if (submitCount.current >= MAX_SUBMISSIONS) {
+      setValidationErrors({ form: 'Maximum submission limit reached' });
+      setSubmitStatus('error');
+      return;
+    }
     
     const errors = validateForm();
     setValidationErrors(errors);
@@ -105,6 +140,10 @@ const Contact = () => {
       });
 
       if (response.ok) {
+        // Update rate limiting
+        lastSubmitTime.current = now;
+        submitCount.current += 1;
+        
         setSubmitStatus('success');
         setFormData({ name: '', email: '', message: '' });
         setValidationErrors({});
@@ -196,7 +235,20 @@ const Contact = () => {
             </div>
           </div>
           
-          <form className={styles.contactForm} onSubmit={handleSubmit}>
+          <form className={styles.contactForm} onSubmit={handleSubmit} noValidate>
+            {/* Security: Honeypot field - hidden from users, visible to bots */}
+            <div style={{ position: 'absolute', left: '-9999px' }} aria-hidden="true">
+              <label htmlFor="website">Website</label>
+              <input
+                type="text"
+                id="website"
+                name="website"
+                value={honeypot}
+                onChange={(e) => setHoneypot(e.target.value)}
+                tabIndex={-1}
+                autoComplete="off"
+              />
+            </div>
             
             {submitStatus === 'success' && (
               <div className={styles.statusMessage + ' ' + styles.success}>
@@ -208,7 +260,7 @@ const Contact = () => {
             {submitStatus === 'error' && (
               <div className={styles.statusMessage + ' ' + styles.error}>
                 <XCircle size={20} />
-                <span>Error sending message. Please check your data.</span>
+                <span>{validationErrors.form || 'Error sending message. Please check your data.'}</span>
               </div>
             )}
 
