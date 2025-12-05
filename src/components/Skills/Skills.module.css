@@ -75,9 +75,10 @@
   left: -50%;
   width: 200%;
   height: 200%;
-  background: radial-gradient(circle, hsl(var(--primary) / 0.1) 0%, transparent 70%);
+  background: radial-gradient(circle, hsl(var(--primary) / 0.05) 0%, transparent 70%);
   opacity: 0;
   transition: opacity 0.3s ease;
+  pointer-events: none;
 }
 
 .skillCategory:hover::before {
@@ -86,8 +87,12 @@
 
 .skillCategory:hover {
   transform: translateY(-10px);
-  border-color: hsl(var(--secondary));
-  box-shadow: 0 20px 40px hsl(var(--secondary) / 0.2);
+  border-color: hsl(var(--primary));
+  box-shadow: 0 20px 40px hsl(var(--primary) / 0.15);
+}
+
+:global(.light) .skillCategory:hover {
+  box-shadow: 0 20px 40px hsl(var(--primary) / 0.2);
 }
 
 .categoryTitle {
@@ -122,8 +127,29 @@
 }
 
 .skillItem:hover {
-  border-color: hsl(var(--primary) / 0.4);
+  border-color: hsl(var(--primary));
   transform: translateX(5px);
+  background: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--secondary)));
+}
+
+.skillItem:hover .skillName,
+.skillItem:hover .skillLevel {
+  color: #000000;
+}
+
+:global(.light) .skillItem {
+  background: hsl(var(--card));
+  border-color: hsl(var(--border));
+}
+
+:global(.light) .skillItem:hover {
+  background: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--secondary)));
+  border-color: hsl(var(--primary));
+}
+
+:global(.light) .skillItem:hover .skillName,
+:global(.light) .skillItem:hover .skillLevel {
+  color: #000000;
 }
 
 .skillHeader {
@@ -138,6 +164,9 @@
   font-size: 1rem;
   font-weight: 600;
   color: hsl(var(--foreground));
+  position: relative;
+  z-index: 2;
+  transition: color 0.3s ease;
 }
 
 .skillLevel {
@@ -145,6 +174,9 @@
   font-size: 0.875rem;
   color: hsl(var(--primary));
   font-weight: 700;
+  position: relative;
+  z-index: 2;
+  transition: color 0.3s ease;
 }
 
 .skillBar {
