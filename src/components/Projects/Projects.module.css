@@ -89,10 +89,49 @@
 .projectCard:hover {
   transform: translateY(-10px) scale(1.02);
   box-shadow: 0 20px 40px hsl(var(--secondary) / 0.3);
+  background: linear-gradient(135deg, hsl(var(--secondary) / 0.9), hsl(var(--primary) / 0.9));
+}
+
+.projectCard:hover .projectTitle,
+.projectCard:hover .projectDescription {
+  color: #000000;
+}
+
+.projectCard:hover .techTag {
+  background: rgba(255, 255, 255, 0.3);
+  color: #000000;
+  border-color: rgba(0, 0, 0, 0.2);
+}
+
+.projectCard:hover .featuredBadge {
+  background: rgba(255, 255, 255, 0.9);
+  color: #000000;
+}
+
+.projectCard:hover .projectLink {
+  background: #000000;
+  color: #ffffff;
 }
 
 :global(.light) .projectCard:hover {
   box-shadow: 0 20px 40px hsl(var(--primary) / 0.2);
+  background: linear-gradient(135deg, hsl(var(--primary) / 0.9), hsl(var(--secondary) / 0.9));
+}
+
+:global(.light) .projectCard:hover .projectTitle,
+:global(.light) .projectCard:hover .projectDescription {
+  color: #000000;
+}
+
+:global(.light) .projectCard:hover .techTag {
+  background: rgba(255, 255, 255, 0.4);
+  color: #000000;
+  border-color: rgba(0, 0, 0, 0.2);
+}
+
+:global(.light) .projectCard:hover .projectLink {
+  background: #000000;
+  color: #ffffff;
 }
 
 .featured {
@@ -120,6 +159,7 @@
   font-weight: 700;
   color: hsl(var(--foreground));
   flex: 1;
+  transition: color 0.3s ease;
 }
 
 .featuredBadge {
@@ -140,6 +180,7 @@
   margin-bottom: 2rem;
   font-size: 1rem;
   flex-grow: 1;
+  transition: color 0.3s ease;
 }
 
 .techStack {
