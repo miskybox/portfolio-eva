@@ -16,6 +16,11 @@
   </head>
 
   <body>
+    <script>
+      // Always start with dark mode (no 'light' class)
+      // This prevents any flash of light mode
+      document.documentElement.classList.remove('light');
+    </script>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>

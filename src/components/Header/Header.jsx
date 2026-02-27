@@ -18,12 +18,10 @@ const Header = () => {
 
   // Check for saved theme preference - default to dark mode
   useEffect(() => {
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme) {
-      setIsDark(savedTheme === 'dark');
-      document.documentElement.classList.toggle('light', savedTheme === 'light');
-    }
-    // If no saved theme, keep dark mode (default)
+    // Always start with dark mode, ignore saved preference
+    setIsDark(true);
+    document.documentElement.classList.remove('light');
+    localStorage.setItem('theme', 'dark');
   }, []);
 
   const toggleTheme = () => {
