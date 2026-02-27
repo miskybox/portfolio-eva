@@ -16,6 +16,7 @@ const Projects = () => {
       title: "🌍 Forum Viajeros",
       description: "SPA for sharing travel experiences. Modern and responsive interface with community features.",
       tech: ["React", "Tailwind CSS", "API REST"],
+      webLink: "https://www.forumviajeros.com",
       link: "https://github.com/miskybox/Forum_frontend.git",
       featured: true
     },
@@ -51,9 +52,20 @@ const Projects = () => {
                 ))}
               </div>
               <div className={styles.cardFooter}>
-                <a 
-                  href={project.link} 
-                  target="_blank" 
+                {project.webLink && (
+                  <a
+                    href={project.webLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={styles.projectLink}
+                  >
+                    Live Site
+                    <ArrowUp className={styles.linkIcon} />
+                  </a>
+                )}
+                <a
+                  href={project.link}
+                  target="_blank"
                   rel="noopener noreferrer"
                   className={styles.projectLink}
                 >
