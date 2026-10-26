@@ -1,0 +1,127 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme inline {
+  --font-mono: var(--font-jetbrains), ui-monospace, monospace;
+  --font-display: var(--font-michroma), var(--font-jetbrains), ui-monospace, monospace;
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-warn: var(--warn);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-ring: var(--ring);
+  --radius-sm: calc(var(--radius) - 2px);
+  --radius-md: var(--radius);
+  --radius-lg: calc(var(--radius) + 2px);
+}
+
+:root {
+  --radius: 0.25rem;
+  --background: oklch(98.5% 0.002 260);
+  --foreground: oklch(24% 0.02 265);
+  --card: oklch(100% 0 0);
+  --card-foreground: oklch(24% 0.02 265);
+  --primary: oklch(45% 0.13 150);
+  --primary-foreground: oklch(100% 0 0);
+  --secondary: oklch(94% 0.008 260);
+  --secondary-foreground: oklch(28% 0.02 265);
+  --muted: oklch(95% 0.005 260);
+  --muted-foreground: oklch(42% 0.02 265);
+  --accent: oklch(47% 0.17 265);
+  --accent-foreground: oklch(100% 0 0);
+  --warn: oklch(50% 0.13 55);
+  --destructive: oklch(52% 0.2 27);
+  --border: oklch(86% 0.01 260);
+  --ring: oklch(45% 0.13 150);
+  --grid-line: oklch(24% 0.02 265 / 0.04);
+  --glow: 0 1px 2px oklch(24% 0.02 265 / 0.08), 0 8px 24px -12px oklch(24% 0.02 265 / 0.18);
+  color-scheme: light;
+}
+
+.dark {
+  --background: oklch(20.5% 0.0234 265.5);
+  --foreground: oklch(91.1% 0.0193 263);
+  --card: oklch(23.1% 0.0269 265.2);
+  --card-foreground: oklch(91.1% 0.0193 263);
+  --primary: oklch(79.7% 0.1636 159.7);
+  --primary-foreground: oklch(18.3% 0.0309 263.4);
+  --secondary: oklch(27.2% 0.0286 261.4);
+  --secondary-foreground: oklch(89% 0.0211 261.8);
+  --muted: oklch(24.8% 0.0305 264.9);
+  --muted-foreground: oklch(68.1% 0.0367 263.5);
+  --accent: oklch(72.2% 0.1482 252.3);
+  --accent-foreground: oklch(18.3% 0.0309 263.4);
+  --warn: oklch(80.4% 0.1558 82.5);
+  --destructive: oklch(71.2% 0.1812 22.8);
+  --border: oklch(32.8% 0.0349 262);
+  --ring: oklch(79.7% 0.1636 159.7);
+  --grid-line: oklch(72.2% 0.1482 252.3 / 0.06);
+  --glow: 0 0 24px oklch(79.7% 0.1636 159.7 / 0.3);
+  color-scheme: dark;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  background-image:
+    linear-gradient(var(--grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+::selection {
+  background: var(--primary);
+  color: var(--primary-foreground);
+}
+
+:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+.text-glow {
+  text-shadow: var(--glow);
+}
+
+.glow {
+  box-shadow: var(--glow);
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+.cursor-blink {
+  animation: 1s step-end infinite blink;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .cursor-blink {
+    animation: none;
+  }
+}

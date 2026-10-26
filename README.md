@@ -1,49 +1,25 @@
-<p align="center">
-  <img src="https://raw.githubusercontent.com/miskybox/portfolio-eva/main/public/banner.png" 
-       alt="Eva Sisalli Guzmán" />
-</p>
+# Portfolio Eva Sisalli
 
+Portfolio personal con estética terminal (Next.js App Router + Tailwind CSS v4).
 
-# 👩‍💻 Eva Sisalli Guzmán — Full Stack Developer
+## Desarrollo
 
-🌐 Portfolio personal creado con **Lovable.dev  
-✨ Diseño retro-future, enfoque accesible, responsive.
+```bash
+npm install
+npm run dev
+```
 
-🌐 Personal portfolio built with **Lovable.dev** .  
-✨ Retro 'Future  design, accessible, responsive.
+Abre [http://localhost:3000](http://localhost:3000).
 
----
+## Contenido editable
 
-## 🚀 Tecnologías | Technologies
+Textos, proyectos, stack y enlaces viven en [`src/content/portfolio.ts`](src/content/portfolio.ts).
 
-- **Frontend**: React, JavaScript (ES6+), HTML5, CSS3, Tailwind CSS, Bootstrap  
-- **Backend**: Java, Spring Boot, PostgreSQL  
-- **Ciberseguridad | Cybersecurity**: OWASP Juice Shop, Burp Suite, TryHackMe  
-- **Herramientas | Tools**: Git, GitHub, Postman, Figma, Jira, Vite, Vitest
+## Scripts
 
----
-
-## 📂 Proyectos Destacados | Featured Projects
-
-| Proyecto / Project | Descripción / Description | Tech | Enlace / Link |
-|--------------------|---------------------------|------|----------------|
-| 🧵 Urdimbre | Sistema de gestión de actividades con dashboards por roles (Admin / Organizador).<br>Activity manager with role-based dashboards (Admin / Organizer). | Java, Spring Boot, React | [GitHub](https://github.com/miskybox/Urdimbre_Frontend.git) |
-| 🌍 Forum Viajeros | SPA para compartir experiencias viajeras.<br>SPA to share travel experiences. | React, Tailwind CSS | [GitHub](https://github.com/miskybox/Forum_frontend.git) |
- |[GitHub](https://github.com/miskybox/Forum_backend.git)
-| 🧪 Playwright QA Tests | Tests automáticos E2E para flujos críticos con Playwright. | Playwright, TypeScript | [GitHub](https://github.com/miskybox/playwright-tests) |
-
----
-
-## 👤 Sobre mí | About Me
-
-```txt
-🇪🇸  Desarrolladora con background en atención al cliente, ahora centrada en desarrollo web.
-🧵  Amante del diseño intuitivo y accesible, con especial interés en seguridad y QA.
-🚀  Experiencia en trabajo ágil, hackathons y creación de apps reales.
-
-## 👤 About Me | About Me
-
-```txt
-🇪🇸 Developer with a background in customer service, now focused on web development.
-🧵 Lover of intuitive and accessible design, with a special interest in security and QA.
-🚀 Experience in agile work, hackathons, and building real apps.
+| Comando | Descripción |
+| --- | --- |
+| `npm run dev` | Servidor de desarrollo |
+| `npm run build` | Build de producción |
+| `npm start` | Sirve el build |
+| `npm run lint` | Lint de Next.js |
