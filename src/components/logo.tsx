@@ -17,8 +17,8 @@ export function Logo() {
         <path d="M14 20l10 12-10 12" strokeLinecap="square" />
         <path d="M30 44h20" />
       </svg>
-      <span className="font-display text-sm tracking-widest text-foreground">
-        ES<span className="text-primary">.</span>
+      <span className="font-display text-sm font-bold tracking-widest text-foreground">
+        ESG
       </span>
     </a>
   );

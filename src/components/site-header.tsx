@@ -12,9 +12,13 @@ export function SiteHeader() {
     <header className="sticky top-0 z-20 border-b border-border bg-background/80 backdrop-blur">
       <nav className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-6 py-4">
         <Logo />
-        <div className="hidden gap-6 text-xs text-muted-foreground md:flex">
+        <div className="hidden gap-6 text-xs font-bold text-muted-foreground md:flex">
           {nav.map((item) => (
-            <a key={item.href} href={item.href} className="transition hover:text-primary">
+            <a
+              key={item.href}
+              href={item.href}
+              className="transition hover:text-primary"
+            >
               {item.label}
             </a>
           ))}
@@ -34,7 +38,7 @@ export function SiteHeader() {
       </nav>
       {open ? (
         <div id="mobile-nav" className="border-t border-border md:hidden">
-          <div className="mx-auto flex max-w-6xl flex-col gap-3 px-6 py-4 text-xs text-muted-foreground">
+          <div className="mx-auto flex max-w-6xl flex-col gap-3 px-6 py-4 text-xs font-bold text-muted-foreground">
             {nav.map((item) => (
               <a
                 key={item.href}

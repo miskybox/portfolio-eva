@@ -1,4 +1,5 @@
 import { SiteHeader } from "@/components/site-header";
+import { TechChip } from "@/components/tech-chip";
 import { Typewriter } from "@/components/typewriter";
 import {
   about,
@@ -190,12 +191,7 @@ export default function HomePage() {
                 </p>
                 <div className="flex flex-wrap gap-2">
                   {group.items.map((item) => (
-                    <span
-                      key={item}
-                      className="rounded-sm bg-secondary px-2 py-1 text-xs text-secondary-foreground"
-                    >
-                      {item}
-                    </span>
+                    <TechChip key={item} label={item} />
                   ))}
                 </div>
               </div>
@@ -226,14 +222,16 @@ export default function HomePage() {
                   ))}
                 </div>
                 <div className="mt-5 flex gap-4 text-xs">
-                  <a
-                    href={project.repo}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="hover:text-primary"
-                  >
-                    [ code ]
-                  </a>
+                  {"repo" in project && project.repo ? (
+                    <a
+                      href={project.repo}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="hover:text-primary"
+                    >
+                      [ code ]
+                    </a>
+                  ) : null}
                   {"live" in project && project.live ? (
                     <a
                       href={project.live}
@@ -241,7 +239,7 @@ export default function HomePage() {
                       rel="noreferrer"
                       className="hover:text-primary"
                     >
-                      [ live ]
+                      {"demo" in project && project.demo ? "[ demo ]" : "[ live ]"}
                     </a>
                   ) : null}
                 </div>

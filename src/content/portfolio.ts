@@ -129,7 +129,10 @@ export const stack = [
     group: "devops_&_data",
     items: [
       "Docker",
+      "Render",
+      "Cloudflare",
       "Git · Gitflow",
+      "GitHub Projects",
       "PostgreSQL",
       "Supabase",
       "Firebase",
@@ -142,11 +145,12 @@ export const stack = [
 
 export const projects = [
   {
-    name: "urdimbre",
+    name: "cancha-dt",
     description:
-      "Activity management system with role-based dashboards (Admin / Organizer). Full stack with authentication and authorization.",
-    tags: ["Java", "Spring Boot", "React", "PostgreSQL"],
-    repo: "https://github.com/miskybox/Urdimbre_Frontend",
+      "2D tactics board (CanchaDT) for amateur and youth football coaches and players. PWA for tablet, phone and desktop — futsal, 5-, 7- and 11-a-side. Live demo still under development.",
+    tags: ["React", "TypeScript", "PWA", "Cloudflare"],
+    live: "https://dev-futbol-total.miskybox.workers.dev/",
+    demo: true,
   },
   {
     name: "forum-viajeros",
