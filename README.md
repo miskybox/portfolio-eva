@@ -7,10 +7,12 @@
 [![Playwright](https://img.shields.io/badge/E2E-Playwright-2EAD33?logo=playwright&logoColor=white)](https://playwright.dev/)
 [![License](https://img.shields.io/badge/license-Personal-0d110f)](#)
 
-Portfolio personal con estética **terminal / IDE**: dark & light mode, tipografía mono, focos en **Full Stack**, **AppSec** y **QA Automation**.
+🇪🇸 Portfolio personal con estética **terminal / IDE**: dark & light mode, tipografía mono, focos en **Full Stack**, **AppSec** y **QA Automation**.
+
+🇬🇧 Personal portfolio with a **terminal / IDE** look: dark & light mode, mono type, focused on **Full Stack**, **AppSec** and **QA Automation**.
 
 **Live:** [portfolio-eva-five.vercel.app](https://portfolio-eva-five.vercel.app)  
-**Contacto:** [e.sisalli@yahoo.com](mailto:e.sisalli@yahoo.com) · [GitHub](https://github.com/miskybox) · [LinkedIn](https://www.linkedin.com/in/eva-sisalli-guzman/)
+**Contact:** [e.sisalli@yahoo.com](mailto:e.sisalli@yahoo.com) · [GitHub](https://github.com/miskybox) · [LinkedIn](https://www.linkedin.com/in/eva-sisalli-guzman/)
 
 ---
 
@@ -30,108 +32,121 @@ Portfolio personal con estética **terminal / IDE**: dark & light mode, tipograf
 
 ---
 
-## Sobre el proyecto
+## About | Sobre el proyecto
 
-Sitio one-page que presenta mi perfil como **Full Stack Developer** (React, Java Spring Boot, Python/FastAPI), con énfasis en:
+🇪🇸 Sitio one-page que presenta mi perfil como **Full Stack Developer** (React, Java Spring Boot, Python/FastAPI), con énfasis en:
 
 - Código limpio y testeable
 - Estándares **OWASP** desde etapas tempranas
 - Automatización **QA** con Playwright
 - Formación actual en **AI & Data Science** (Factoría F5)
 
-El contenido (textos, stack, proyectos, enlaces) se edita en un único archivo: [`src/content/portfolio.ts`](src/content/portfolio.ts).
+🇬🇧 One-page site presenting my profile as a **Full Stack Developer** (React, Java Spring Boot, Python/FastAPI), with focus on:
+
+- Clean, testable code
+- **OWASP** standards from early stages
+- **QA** automation with Playwright
+- Currently studying **AI & Data Science** (Factoría F5)
+
+🇪🇸 / 🇬🇧 Content (copy, stack, projects, links) lives in [`src/content/portfolio.ts`](src/content/portfolio.ts).
 
 ---
 
-## Features
+## Features | Características
 
-- Estética terminal (`whoami`, `$ view_projects`, navegación `./about`…)
-- **Dark / light** con contraste pensado para accesibilidad
-- Responsive (móvil, tablet, desktop) sin scroll horizontal
-- Cards de proyectos con **preview clicable** (demo / live / repo)
-- Iconos de marca en el tech stack
-- Cabeceras de seguridad (CSP, HSTS-ready, etc.) en Next.js
-- Tests unitarios (Vitest) + E2E a11y (Playwright + axe)
+| ES | EN |
+| --- | --- |
+| Estética terminal (`whoami`, `$ view_projects`, nav `./about`…) | Terminal aesthetic (`whoami`, `$ view_projects`, `./about` nav…) |
+| Dark / light con contraste accesible | Dark / light with accessible contrast |
+| Responsive sin scroll horizontal | Responsive with no horizontal scroll |
+| Previews de proyecto clicables (demo / live / repo) | Clickable project previews (demo / live / repo) |
+| Iconos de marca en el tech stack | Brand icons in the tech stack |
+| Cabeceras de seguridad (CSP, etc.) en Next.js | Security headers (CSP, etc.) in Next.js |
+| Vitest + Playwright E2E + axe | Vitest + Playwright E2E + axe |
 
 ---
 
-## Tech stack del sitio
+## Site tech stack | Stack del sitio
 
-| Capa | Tecnología |
+| Layer / Capa | Tech |
 | --- | --- |
 | Framework | Next.js 15 (App Router) |
 | UI | React 19 · Tailwind CSS v4 |
-| Lenguaje | TypeScript |
-| Iconos | react-icons |
-| Fuentes | JetBrains Mono · Michroma |
+| Language / Lenguaje | TypeScript |
+| Icons / Iconos | react-icons |
+| Fonts / Fuentes | JetBrains Mono · Michroma |
 | Deploy | Vercel |
 | Tests | Vitest · Playwright · axe-core |
 
 ---
 
-## Proyectos destacados
+## Featured projects | Proyectos destacados
 
-| | Proyecto | Qué es | Enlaces |
-| :---: | --- | --- | --- |
-| <img src="public/projects/cancha-dt.png" alt="CanchaDT" width="120" /> | **cancha-dt** | Pizarra táctica 2D (PWA) para fútbol amateur y base | [Demo](https://dev-futbol-total.miskybox.workers.dev/) |
-| <img src="public/projects/forum-viajeros.png" alt="Forum Viajeros" width="120" /> | **forum-viajeros** | SPA de relatos y comunidad viajera | [Web](https://www.forumviajeros.com/) · [Code](https://github.com/miskybox/Forum_frontend) |
-| <img src="public/projects/playwright-qa.svg" alt="Playwright QA" width="120" /> | **playwright-qa-tests** | Suite E2E risk-based (Polymer Shop) | [Code](https://github.com/miskybox/project-qa-tests) |
+| | Project | ES | EN | Links |
+| :---: | --- | --- | --- | --- |
+| <img src="public/projects/cancha-dt.png" alt="CanchaDT" width="120" /> | **cancha-dt** | Pizarra táctica 2D (PWA) para fútbol amateur y base | 2D tactics board (PWA) for amateur & youth football | [Demo](https://dev-futbol-total.miskybox.workers.dev/) |
+| <img src="public/projects/forum-viajeros.png" alt="Forum Viajeros" width="120" /> | **forum-viajeros** | SPA de relatos y comunidad viajera | Travel stories & community SPA | [Web](https://www.forumviajeros.com/) · [Code](https://github.com/miskybox/Forum_frontend) |
+| <img src="public/projects/playwright-qa.svg" alt="Playwright QA" width="120" /> | **playwright-qa-tests** | Suite E2E risk-based (Polymer Shop) | Risk-based E2E suite (Polymer Shop) | [Code](https://github.com/miskybox/project-qa-tests) |
 
 ---
 
-## Arranque local
+## Getting started | Arranque local
 
 ```bash
 npm install
 npm run dev
 ```
 
-Abre [http://localhost:3000](http://localhost:3000).
+Open / Abre [http://localhost:3000](http://localhost:3000).
 
 ```bash
-npm run build && npm start   # producción local
+npm run build && npm start   # production locally / producción local
 ```
 
 ---
 
 ## Scripts
 
-| Comando | Descripción |
-| --- | --- |
-| `npm run dev` | Servidor de desarrollo |
-| `npm run build` | Build de producción |
-| `npm start` | Sirve el build |
-| `npm run lint` | ESLint (Next.js) |
-| `npm test` | Vitest (contenido / integridad) |
-| `npm run test:e2e` | Playwright E2E + a11y |
+| Command | ES | EN |
+| --- | --- | --- |
+| `npm run dev` | Servidor de desarrollo | Dev server |
+| `npm run build` | Build de producción | Production build |
+| `npm start` | Sirve el build | Serve the build |
+| `npm run lint` | ESLint (Next.js) | ESLint (Next.js) |
+| `npm test` | Vitest (contenido / integridad) | Vitest (content integrity) |
+| `npm run test:e2e` | Playwright E2E + a11y | Playwright E2E + a11y |
 
 ---
 
-## Estructura
+## Structure | Estructura
 
 ```text
 src/
   app/           # layout, page, globals.css, icon
   components/    # header, logo, theme toggle, tech chips…
-  content/       # portfolio.ts ← edita aquí
+  content/       # portfolio.ts ← edit here / edita aquí
 public/
-  projects/      # logos / previews de proyectos
+  projects/      # project logos / logos de proyectos
 docs/
-  screenshots/   # capturas del README
+  screenshots/   # README screenshots / capturas
 e2e/             # Playwright
 ```
 
 ---
 
-## Seguridad & accesibilidad
+## Security & accessibility | Seguridad & accesibilidad
 
-- Skip link, landmarks semánticos, `rel="noopener noreferrer"` en externos
-- Contraste revisado en light/dark (textos de cuerpo, cards de proyectos)
-- CSP y cabeceras HTTP en `next.config.ts` (`unsafe-eval` solo en desarrollo)
-- Checks E2E con axe-core
+🇪🇸 / 🇬🇧
+
+- Skip link, semantic landmarks, `rel="noopener noreferrer"` on external links
+- Contrast reviewed in light/dark (body text, project cards)
+- CSP & HTTP headers in `next.config.ts` (`unsafe-eval` only in development)
+- E2E checks with axe-core
 
 ---
 
-## Licencia
+## License | Licencia
 
-Uso personal / portfolio. El código del sitio puede servir de referencia; el contenido (textos, marca ESG, capturas) es propio.
+🇪🇸 Uso personal / portfolio. El código puede servir de referencia; el contenido (textos, marca ESG, capturas) es propio.
+
+🇬🇧 Personal / portfolio use. Code may be used as reference; content (copy, ESG brand, screenshots) is owned by the author.
