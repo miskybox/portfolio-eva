@@ -3,7 +3,7 @@ export function Logo() {
     <a
       href="#top"
       className="flex items-center gap-2 text-primary"
-      aria-label="Eva Sisalli home"
+      aria-label="ESG — Eva Sisalli home"
     >
       <svg
         viewBox="0 0 64 64"

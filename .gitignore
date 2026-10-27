@@ -7,6 +7,12 @@ node_modules
 .next
 out
 
+# tests
+coverage
+playwright-report
+test-results
+blob-report
+
 # build / cache
 dist
 dist-ssr

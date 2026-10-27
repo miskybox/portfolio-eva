@@ -24,8 +24,11 @@ export default function HomePage() {
 
   return (
     <div id="top" className="min-h-screen">
+      <a href="#main-content" className="skip-link">
+        Skip to content
+      </a>
       <SiteHeader />
-      <main className="mx-auto max-w-6xl px-6">
+      <main id="main-content" className="mx-auto max-w-6xl px-6" tabIndex={-1}>
         <section className="grid min-h-[85vh] items-center gap-12 py-20 md:grid-cols-[1.3fr_1fr]">
           <div>
             <p className="mb-6 text-sm text-muted-foreground">
@@ -226,7 +229,7 @@ export default function HomePage() {
                     <a
                       href={project.repo}
                       target="_blank"
-                      rel="noreferrer"
+                      rel="noopener noreferrer"
                       className="hover:text-primary"
                     >
                       [ code ]
@@ -236,7 +239,7 @@ export default function HomePage() {
                     <a
                       href={project.live}
                       target="_blank"
-                      rel="noreferrer"
+                      rel="noopener noreferrer"
                       className="hover:text-primary"
                     >
                       {"demo" in project && project.demo ? "[ demo ]" : "[ live ]"}
@@ -270,7 +273,7 @@ export default function HomePage() {
               <a
                 href={contact.github}
                 target="_blank"
-                rel="noreferrer"
+                rel="noopener noreferrer"
                 className="rounded border border-border px-5 py-3 hover:border-primary hover:text-primary"
               >
                 github
@@ -278,7 +281,7 @@ export default function HomePage() {
               <a
                 href={contact.linkedin}
                 target="_blank"
-                rel="noreferrer"
+                rel="noopener noreferrer"
                 className="rounded border border-border px-5 py-3 hover:border-primary hover:text-primary"
               >
                 linkedin

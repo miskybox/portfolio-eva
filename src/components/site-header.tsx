@@ -29,6 +29,7 @@ export function SiteHeader() {
             className="rounded border border-border px-3 py-1 text-xs text-muted-foreground transition hover:border-primary hover:text-primary md:hidden"
             aria-expanded={open}
             aria-controls="mobile-nav"
+            aria-label={open ? "Close menu" : "Open menu"}
             onClick={() => setOpen((value) => !value)}
           >
             {open ? "[ close ]" : "[ menu ]"}
