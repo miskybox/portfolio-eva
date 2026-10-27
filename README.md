@@ -136,7 +136,14 @@ e2e/             # Playwright
 
 ## Security & accessibility | Seguridad & accesibilidad
 
-🇪🇸 / 🇬🇧
+🇪🇸
+
+- Skip link, landmarks semánticos y `rel="noopener noreferrer"` en enlaces externos
+- Contraste revisado en light/dark (texto de cuerpo, cards de proyectos)
+- CSP y cabeceras HTTP en `next.config.ts` (`unsafe-eval` solo en desarrollo)
+- Checks E2E con axe-core
+
+🇬🇧
 
 - Skip link, semantic landmarks, `rel="noopener noreferrer"` on external links
 - Contrast reviewed in light/dark (body text, project cards)
