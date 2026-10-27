@@ -1,183 +1,111 @@
-import { test, expect } from '@playwright/test';
+import { expect, test } from "@playwright/test";
+import AxeBuilder from "@axe-core/playwright";
 
-test.describe('Portfolio E2E Tests', () => {
-  
-  test.beforeEach(async ({ page }) => {
-    await page.goto('/');
+test.describe("portfolio security & accessibility", () => {
+  test("serves security headers", async ({ page }) => {
+    const response = await page.goto("/");
+    expect(response?.ok()).toBeTruthy();
+
+    const headers = response?.headers() ?? {};
+    expect(headers["x-content-type-options"]).toBe("nosniff");
+    expect(headers["x-frame-options"]).toBe("DENY");
+    expect(headers["referrer-policy"]).toBe("strict-origin-when-cross-origin");
+    expect(headers["content-security-policy"]).toContain("default-src 'self'");
+    expect(headers["content-security-policy"]).toContain("frame-ancestors 'none'");
+    expect(headers["x-powered-by"]).toBeUndefined();
   });
 
-  // Helper function to navigate - uses scroll if nav button not accessible
-  const navigateToSection = async (page: any, sectionId: string, buttonText: string) => {
-    const navButton = page.locator(`button:has-text("${buttonText}"), a[href="#${sectionId}"]`).first();
-    const isVisible = await navButton.isVisible().catch(() => false);
-    
-    if (isVisible) {
-      try {
-        await navButton.click({ timeout: 3000 });
-      } catch {
-        // If click fails, scroll directly to section
-        await page.locator(`#${sectionId}`).scrollIntoViewIfNeeded();
-      }
-    } else {
-      // On mobile, scroll directly to the section
-      await page.locator(`#${sectionId}`).scrollIntoViewIfNeeded();
+  test("keeps external links safe and present", async ({ page }) => {
+    await page.goto("/");
+
+    const external = page.locator('a[target="_blank"]');
+    const count = await external.count();
+    expect(count).toBeGreaterThan(0);
+
+    for (let i = 0; i < count; i += 1) {
+      const link = external.nth(i);
+      const rel = (await link.getAttribute("rel")) ?? "";
+      expect(rel).toContain("noopener");
+      expect(rel).toContain("noreferrer");
+      const href = (await link.getAttribute("href")) ?? "";
+      expect(href.startsWith("https://")).toBeTruthy();
     }
-  };
-
-  test.describe('Navigation', () => {
-    test('should load the homepage successfully', async ({ page }) => {
-      await expect(page).toHaveTitle(/Eva|Portfolio/i);
-    });
-
-    test('should have visible header navigation', async ({ page }) => {
-      const header = page.locator('header');
-      await expect(header).toBeVisible();
-    });
-
-    test('should navigate to About section', async ({ page }) => {
-      await navigateToSection(page, 'about', 'ABOUT');
-      await expect(page.locator('#about')).toBeVisible();
-    });
-
-    test('should navigate to Skills section', async ({ page }) => {
-      await navigateToSection(page, 'skills', 'SKILLS');
-      await expect(page.locator('#skills')).toBeVisible();
-    });
-
-    test('should navigate to Projects section', async ({ page }) => {
-      await navigateToSection(page, 'projects', 'PROJECTS');
-      await expect(page.locator('#projects')).toBeVisible();
-    });
-
-    test('should navigate to Contact section', async ({ page }) => {
-      await navigateToSection(page, 'contact', 'CONTACT');
-      await expect(page.locator('#contact')).toBeVisible();
-    });
   });
 
-  test.describe('Hero Section', () => {
-    test('should display hero section with name', async ({ page }) => {
-      // Verify the name heading (h1) is displayed in the hero
-      const nameHeading = page.locator('h1').filter({ hasText: /eva sisalli/i });
-      await expect(nameHeading).toBeVisible();
-    });
+  test("exposes landmarks, skip link and brand", async ({ page }) => {
+    await page.goto("/");
 
-    test('should have a call-to-action button', async ({ page }) => {
-      const ctaButton = page.locator('button, a').filter({ hasText: /contacto|proyectos|cv/i }).first();
-      await expect(ctaButton).toBeVisible();
-    });
+    await expect(page.getByRole("banner")).toBeVisible();
+    await expect(page.getByRole("main")).toBeVisible();
+    await expect(page.getByRole("contentinfo")).toBeVisible();
+    await expect(page.getByRole("heading", { level: 1 })).toContainText("EVA SISALLI");
+    await expect(page.getByRole("link", { name: /ESG/i })).toContainText("ESG");
+
+    await page.keyboard.press("Tab");
+    const skip = page.getByRole("link", { name: "Skip to content" });
+    await expect(skip).toBeFocused();
+    await skip.press("Enter");
+    await expect(page.locator("#main-content")).toBeFocused();
   });
 
-  test.describe('Skills Section', () => {
-    test('should display skill categories', async ({ page }) => {
-      await page.locator('#skills').scrollIntoViewIfNeeded();
-      
-      const skillsSection = page.locator('#skills');
-      await expect(skillsSection).toBeVisible();
-      
-      // Check for skill category titles using headings (more specific)
-      await expect(page.locator('#skills').getByRole('heading', { name: 'Frontend' })).toBeVisible();
-      await expect(page.locator('#skills').getByRole('heading', { name: 'Backend' })).toBeVisible();
-      await expect(page.locator('#skills').getByRole('heading', { name: 'QA & Testing' })).toBeVisible();
-    });
+  test("has no serious axe accessibility violations on the homepage", async ({
+    page,
+  }) => {
+    await page.goto("/");
+    const results = await new AxeBuilder({ page })
+      .withTags(["wcag2a", "wcag2aa", "wcag21a", "wcag21aa"])
+      .analyze();
 
-    test('should display cybersecurity skills', async ({ page }) => {
-      await page.locator('#skills').scrollIntoViewIfNeeded();
-      
-      await expect(page.locator('#skills').getByRole('heading', { name: 'Ciberseguridad' })).toBeVisible();
-    });
+    const serious = results.violations.filter(
+      (violation) => violation.impact === "critical" || violation.impact === "serious",
+    );
 
-    test('should display skill progress bars', async ({ page }) => {
-      await page.locator('#skills').scrollIntoViewIfNeeded();
-      
-      const progressBars = page.locator('#skills [class*="progress"], #skills [class*="skillBar"]');
-      const count = await progressBars.count();
-      expect(count).toBeGreaterThan(0);
-    });
+    expect(
+      serious,
+      serious.map((item) => `${item.id}: ${item.help}`).join("\n"),
+    ).toEqual([]);
   });
 
-  test.describe('Projects Section', () => {
-    test('should display project cards', async ({ page }) => {
-      await page.locator('#projects').scrollIntoViewIfNeeded();
-      
-      const projectCards = page.locator('#projects [class*="card"], #projects [class*="project"]');
-      const count = await projectCards.count();
-      expect(count).toBeGreaterThan(0);
-    });
+  test("shows expected project cards and demo link", async ({ page }) => {
+    await page.goto("/#projects");
+    await expect(page.getByRole("heading", { name: "cancha-dt" })).toBeVisible();
+    await expect(page.getByRole("heading", { name: "forum-viajeros" })).toBeVisible();
+    await expect(page.getByRole("heading", { name: "playwright-qa-tests" })).toBeVisible();
+    await expect(page.getByRole("link", { name: "[ demo ]" })).toHaveAttribute(
+      "href",
+      "https://dev-futbol-total.miskybox.workers.dev/",
+    );
+    await expect(page.getByRole("link", { name: "Open cancha-dt" })).toHaveAttribute(
+      "href",
+      "https://dev-futbol-total.miskybox.workers.dev/",
+    );
+    await expect(page.getByRole("link", { name: "Open forum-viajeros" })).toHaveAttribute(
+      "href",
+      "https://www.forumviajeros.com/",
+    );
+    await expect(page.getByRole("link", { name: "Open playwright-qa-tests" })).toHaveAttribute(
+      "href",
+      "https://github.com/miskybox/project-qa-tests",
+    );
+    await expect(page.getByText("urdimbre")).toHaveCount(0);
   });
 
-  test.describe('Contact Section', () => {
-    test('should display contact form or contact info', async ({ page }) => {
-      await page.locator('#contact').scrollIntoViewIfNeeded();
-      
-      const contactSection = page.locator('#contact');
-      await expect(contactSection).toBeVisible();
+  for (const viewport of [
+    { name: "iPhone 16", width: 393, height: 852 },
+    { name: "iPad", width: 820, height: 1180 },
+  ]) {
+    test(`has no horizontal overflow on ${viewport.name}`, async ({ page }) => {
+      await page.setViewportSize({
+        width: viewport.width,
+        height: viewport.height,
+      });
+      await page.goto("/");
+      const metrics = await page.evaluate(() => ({
+        scrollWidth: document.documentElement.scrollWidth,
+        clientWidth: document.documentElement.clientWidth,
+      }));
+      expect(metrics.scrollWidth).toBeLessThanOrEqual(metrics.clientWidth + 1);
     });
-
-    test('should have social media links', async ({ page }) => {
-      const socialLinks = page.locator('a[href*="linkedin"], a[href*="github"]');
-      const count = await socialLinks.count();
-      expect(count).toBeGreaterThan(0);
-    });
-  });
-
-  test.describe('Footer', () => {
-    test('should display footer', async ({ page }) => {
-      const footer = page.locator('footer');
-      await expect(footer).toBeVisible();
-    });
-  });
-
-  test.describe('Accessibility', () => {
-    test('should have proper heading hierarchy', async ({ page }) => {
-      const h1 = page.locator('h1');
-      const h1Count = await h1.count();
-      expect(h1Count).toBeGreaterThanOrEqual(1);
-    });
-
-    test('should have alt text on images', async ({ page }) => {
-      const images = page.locator('img');
-      const count = await images.count();
-      
-      for (let i = 0; i < count; i++) {
-        const img = images.nth(i);
-        const alt = await img.getAttribute('alt');
-        expect(alt).not.toBeNull();
-      }
-    });
-  });
-
-  test.describe('Responsive Design', () => {
-    test('should be responsive on mobile', async ({ page }) => {
-      await page.setViewportSize({ width: 375, height: 667 });
-      await page.reload();
-      
-      const body = page.locator('body');
-      await expect(body).toBeVisible();
-      
-      // Check no horizontal scroll
-      const scrollWidth = await page.evaluate(() => document.documentElement.scrollWidth);
-      const clientWidth = await page.evaluate(() => document.documentElement.clientWidth);
-      expect(scrollWidth).toBeLessThanOrEqual(clientWidth + 5); // 5px tolerance
-    });
-
-    test('should be responsive on tablet', async ({ page }) => {
-      await page.setViewportSize({ width: 768, height: 1024 });
-      await page.reload();
-      
-      const body = page.locator('body');
-      await expect(body).toBeVisible();
-    });
-  });
-
-  test.describe('Performance', () => {
-    test('should load within acceptable time', async ({ page }) => {
-      const startTime = Date.now();
-      await page.goto('/');
-      await page.waitForLoadState('networkidle');
-      const loadTime = Date.now() - startTime;
-      
-      expect(loadTime).toBeLessThan(5000); // Should load within 5 seconds
-    });
-  });
+  }
 });
+

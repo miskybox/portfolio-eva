@@ -1,0 +1,238 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme inline {
+  --font-mono: var(--font-jetbrains), ui-monospace, monospace;
+  --font-display: var(--font-michroma), var(--font-jetbrains), ui-monospace, monospace;
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-warn: var(--warn);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-ring: var(--ring);
+  --radius-sm: calc(var(--radius) - 2px);
+  --radius-md: var(--radius);
+  --radius-lg: calc(var(--radius) + 2px);
+}
+
+:root {
+  /* Light: mint paper + emerald/teal depth (not flat grey) */
+  --radius: 0.4rem;
+  --background: oklch(97.2% 0.014 165);
+  --foreground: oklch(14% 0.03 155);
+  --card: oklch(99% 0.01 165);
+  --card-foreground: oklch(14% 0.03 155);
+  --primary: oklch(42% 0.14 155);
+  --primary-foreground: oklch(98.5% 0.01 155);
+  --secondary: oklch(93% 0.04 165);
+  --secondary-foreground: oklch(22% 0.05 155);
+  --muted: oklch(94.5% 0.02 165);
+  --muted-foreground: oklch(28% 0.03 155);
+  --accent: oklch(48% 0.14 230);
+  --accent-foreground: oklch(98.5% 0.01 230);
+  --warn: oklch(55% 0.14 70);
+  --destructive: oklch(50% 0.18 25);
+  --border: oklch(78% 0.04 165);
+  --ring: oklch(42% 0.14 155);
+  --grid-line: oklch(42% 0.1 155 / 0.09);
+  --glow: 0 1px 0 oklch(42% 0.14 155 / 0.12), 0 12px 32px -10px oklch(42% 0.12 155 / 0.28);
+  --wash-a: oklch(90% 0.06 165 / 0.55);
+  --wash-b: oklch(92% 0.05 220 / 0.4);
+  color-scheme: light;
+}
+
+.dark {
+  --background: oklch(20.5% 0.0234 265.5);
+  --foreground: oklch(91.1% 0.0193 263);
+  --card: oklch(23.1% 0.0269 265.2);
+  --card-foreground: oklch(91.1% 0.0193 263);
+  --primary: oklch(79.7% 0.1636 159.7);
+  --primary-foreground: oklch(18.3% 0.0309 263.4);
+  --secondary: oklch(27.2% 0.0286 261.4);
+  --secondary-foreground: oklch(89% 0.0211 261.8);
+  --muted: oklch(24.8% 0.0305 264.9);
+  --muted-foreground: oklch(68.1% 0.0367 263.5);
+  --accent: oklch(72.2% 0.1482 252.3);
+  --accent-foreground: oklch(18.3% 0.0309 263.4);
+  --warn: oklch(80.4% 0.1558 82.5);
+  --destructive: oklch(71.2% 0.1812 22.8);
+  --border: oklch(32.8% 0.0349 262);
+  --ring: oklch(79.7% 0.1636 159.7);
+  --grid-line: oklch(72.2% 0.1482 252.3 / 0.06);
+  --glow: 0 0 24px oklch(79.7% 0.1636 159.7 / 0.3);
+  --wash-a: transparent;
+  --wash-b: transparent;
+  color-scheme: dark;
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: clip;
+}
+
+.skip-link {
+  position: absolute;
+  left: 1rem;
+  top: -100%;
+  z-index: 50;
+  border-radius: var(--radius);
+  background: var(--primary);
+  color: var(--primary-foreground);
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.skip-link:focus {
+  top: 1rem;
+}
+
+body {
+  overflow-x: clip;
+  background-color: var(--background);
+  color: var(--foreground);
+  background-image:
+    radial-gradient(ellipse 80% 50% at 10% -10%, var(--wash-a), transparent 55%),
+    radial-gradient(ellipse 70% 45% at 95% 5%, var(--wash-b), transparent 50%),
+    linear-gradient(var(--grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+  background-size:
+    auto,
+    auto,
+    32px 32px,
+    32px 32px;
+  background-attachment: fixed;
+}
+
+::selection {
+  background: var(--primary);
+  color: var(--primary-foreground);
+}
+
+:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+.text-glow {
+  text-shadow: none;
+}
+
+.glow {
+  box-shadow: var(--glow);
+}
+
+.dark .text-glow {
+  text-shadow: var(--glow);
+}
+
+/* Light cards: soft emerald edge + lift */
+:root:not(.dark) .surface-card {
+  border-color: color-mix(in oklab, var(--primary) 22%, var(--border));
+  background:
+    linear-gradient(
+      165deg,
+      color-mix(in oklab, var(--primary) 6%, var(--card)) 0%,
+      var(--card) 42%,
+      color-mix(in oklab, var(--accent) 5%, var(--card)) 100%
+    );
+  box-shadow: var(--glow);
+}
+
+:root:not(.dark) .surface-card:hover {
+  border-color: color-mix(in oklab, var(--primary) 55%, var(--border));
+}
+
+/* Project cards: solid contrast so body text stays WCAG-friendly */
+.project-card {
+  background: var(--project-card-bg);
+  color: var(--project-card-fg);
+  border-color: var(--project-card-border);
+  box-shadow: var(--glow);
+}
+
+.project-card .project-card-muted {
+  color: var(--project-card-muted);
+}
+
+.project-card .project-card-accent {
+  color: var(--project-card-accent);
+}
+
+:root {
+  --project-card-bg: oklch(99.2% 0.012 165);
+  --project-card-fg: oklch(18% 0.03 155);
+  --project-card-muted: oklch(32% 0.03 155);
+  --project-card-accent: oklch(40% 0.13 230);
+  --project-card-border: oklch(72% 0.05 155);
+}
+
+.dark {
+  --project-card-bg: oklch(26% 0.035 265);
+  --project-card-fg: oklch(94% 0.02 263);
+  --project-card-muted: oklch(78% 0.03 263);
+  --project-card-accent: oklch(78% 0.12 230);
+  --project-card-border: oklch(42% 0.05 262);
+}
+
+:root:not(.dark) .project-card:hover {
+  border-color: color-mix(in oklab, var(--primary) 50%, var(--project-card-border));
+}
+
+.dark .project-card:hover {
+  border-color: color-mix(in oklab, var(--primary) 45%, var(--project-card-border));
+}
+
+.project-media {
+  /* Match dark logo banners (Forum / CanchaDT) for a flush preview strip */
+  background: #0a0a0c;
+}
+
+/* Experience years: primary, a couple of tones darker */
+.experience-when {
+  color: color-mix(in oklab, var(--primary) 72%, var(--foreground));
+}
+
+.experience-when-badge {
+  color: inherit;
+  border-color: color-mix(in oklab, var(--primary) 72%, var(--foreground));
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+.cursor-blink {
+  animation: 1s step-end infinite blink;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .cursor-blink {
+    animation: none;
+  }
+
+  body {
+    background-attachment: scroll;
+  }
+}
