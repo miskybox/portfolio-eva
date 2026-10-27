@@ -1,5 +1,19 @@
 import type { NextConfig } from "next";
 
+const isDev = process.env.NODE_ENV !== "production";
+
+const scriptSrc = [
+  "'self'",
+  "'unsafe-inline'",
+  // Next.js HMR / react-refresh needs eval in development only.
+  ...(isDev ? ["'unsafe-eval'"] : []),
+].join(" ");
+
+const connectSrc = [
+  "'self'",
+  ...(isDev ? ["ws:", "wss:"] : []),
+].join(" ");
+
 const securityHeaders = [
   { key: "X-Content-Type-Options", value: "nosniff" },
   { key: "X-Frame-Options", value: "DENY" },
@@ -12,12 +26,11 @@ const securityHeaders = [
     key: "Content-Security-Policy",
     value: [
       "default-src 'self'",
-      // Theme bootstrap is a fixed inline script; Next may also inject small runtime helpers.
-      "script-src 'self' 'unsafe-inline'",
+      `script-src ${scriptSrc}`,
       "style-src 'self' 'unsafe-inline'",
       "img-src 'self' data:",
       "font-src 'self' data:",
-      "connect-src 'self'",
+      `connect-src ${connectSrc}`,
       "object-src 'none'",
       "base-uri 'self'",
       "form-action 'self'",

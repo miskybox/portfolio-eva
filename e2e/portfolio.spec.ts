@@ -75,6 +75,37 @@ test.describe("portfolio security & accessibility", () => {
       "href",
       "https://dev-futbol-total.miskybox.workers.dev/",
     );
+    await expect(page.getByRole("link", { name: "Open cancha-dt" })).toHaveAttribute(
+      "href",
+      "https://dev-futbol-total.miskybox.workers.dev/",
+    );
+    await expect(page.getByRole("link", { name: "Open forum-viajeros" })).toHaveAttribute(
+      "href",
+      "https://www.forumviajeros.com/",
+    );
+    await expect(page.getByRole("link", { name: "Open playwright-qa-tests" })).toHaveAttribute(
+      "href",
+      "https://github.com/miskybox/project-qa-tests",
+    );
     await expect(page.getByText("urdimbre")).toHaveCount(0);
   });
+
+  for (const viewport of [
+    { name: "iPhone 16", width: 393, height: 852 },
+    { name: "iPad", width: 820, height: 1180 },
+  ]) {
+    test(`has no horizontal overflow on ${viewport.name}`, async ({ page }) => {
+      await page.setViewportSize({
+        width: viewport.width,
+        height: viewport.height,
+      });
+      await page.goto("/");
+      const metrics = await page.evaluate(() => ({
+        scrollWidth: document.documentElement.scrollWidth,
+        clientWidth: document.documentElement.clientWidth,
+      }));
+      expect(metrics.scrollWidth).toBeLessThanOrEqual(metrics.clientWidth + 1);
+    });
+  }
 });
+

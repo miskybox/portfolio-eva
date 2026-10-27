@@ -99,7 +99,7 @@ export function TechChip({ label }: { label: string }) {
   const color = meta?.color ?? "var(--primary)";
 
   return (
-    <span className="inline-flex items-center gap-1.5 rounded-sm border border-border bg-secondary/80 px-2 py-1 text-xs text-secondary-foreground">
+    <span className="inline-flex items-center gap-1.5 rounded-sm border border-border bg-secondary/80 px-2 py-1 text-sm text-secondary-foreground">
       {Icon ? (
         <Icon
           aria-hidden

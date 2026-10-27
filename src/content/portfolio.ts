@@ -151,6 +151,9 @@ export const projects = [
     tags: ["React", "TypeScript", "PWA", "Cloudflare"],
     live: "https://dev-futbol-total.miskybox.workers.dev/",
     demo: true,
+    image: "/projects/cancha-dt.png",
+    imageAlt: "Logo de CanchaDT — pizarra táctica de fútbol",
+    imageBg: "#0f3a8a",
   },
   {
     name: "forum-viajeros",
@@ -159,6 +162,9 @@ export const projects = [
     tags: ["React", "Tailwind", "REST API"],
     repo: "https://github.com/miskybox/Forum_frontend",
     live: "https://www.forumviajeros.com/",
+    image: "/projects/forum-viajeros.png",
+    imageAlt: "Logo de Forum Viajeros",
+    imageBg: "#0d110f",
   },
   {
     name: "playwright-qa-tests",
@@ -166,6 +172,9 @@ export const projects = [
       "Automated tests on the Polymer Shop sample store with a risk-based strategy covering critical user flows.",
     tags: ["Playwright", "TypeScript", "Testing"],
     repo: "https://github.com/miskybox/project-qa-tests",
+    image: "/projects/playwright-qa.svg",
+    imageAlt: "Playwright QA tests",
+    imageBg: "#0a0a0c",
   },
 ] as const;
 

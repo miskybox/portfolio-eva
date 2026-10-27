@@ -30,7 +30,7 @@ export function ThemeToggle() {
     <button
       type="button"
       onClick={toggle}
-      className="rounded border border-border px-3 py-1 text-xs text-muted-foreground transition hover:border-primary hover:text-primary"
+      className="rounded border border-border px-3 py-1 text-sm text-muted-foreground transition hover:border-primary hover:text-primary"
       aria-label={`${label} switch color theme`}
     >
       {label}

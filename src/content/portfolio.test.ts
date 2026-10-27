@@ -34,4 +34,11 @@ describe("portfolio content integrity", () => {
     expect(cancha?.description.toLowerCase()).toContain("under development");
     expect("demo" in (cancha ?? {}) && cancha?.demo).toBe(true);
   });
+
+  it("gives every project a clickable preview image", () => {
+    for (const project of projects) {
+      expect("image" in project && project.image).toMatch(/^\/projects\//);
+      expect("imageAlt" in project && project.imageAlt).toBeTruthy();
+    }
+  });
 });

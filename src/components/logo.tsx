@@ -2,7 +2,7 @@ export function Logo() {
   return (
     <a
       href="#top"
-      className="flex items-center gap-2 text-primary"
+      className="flex min-w-0 shrink-0 items-center gap-2 text-primary"
       aria-label="ESG — Eva Sisalli home"
     >
       <svg
@@ -17,7 +17,7 @@ export function Logo() {
         <path d="M14 20l10 12-10 12" strokeLinecap="square" />
         <path d="M30 44h20" />
       </svg>
-      <span className="font-display text-sm font-bold tracking-widest text-foreground">
+      <span className="font-display text-base font-bold tracking-widest text-foreground">
         ESG
       </span>
     </a>

@@ -23,31 +23,35 @@ export default function HomePage() {
   const stackRows = chunk(profile.stack, 2);
 
   return (
-    <div id="top" className="min-h-screen">
+    <div id="top" className="min-h-screen w-full max-w-[100vw] overflow-x-clip">
       <a href="#main-content" className="skip-link">
         Skip to content
       </a>
       <SiteHeader />
-      <main id="main-content" className="mx-auto max-w-6xl px-6" tabIndex={-1}>
-        <section className="grid min-h-[85vh] items-center gap-12 py-20 md:grid-cols-[1.3fr_1fr]">
-          <div>
-            <p className="mb-6 text-sm text-muted-foreground">
+      <main
+        id="main-content"
+        className="mx-auto w-full max-w-6xl min-w-0 px-4 sm:px-6"
+        tabIndex={-1}
+      >
+        <section className="grid min-h-[85vh] items-center gap-10 py-14 sm:gap-12 sm:py-20 lg:grid-cols-[1.3fr_1fr]">
+          <div className="min-w-0">
+            <p className="mb-6 text-base text-muted-foreground">
               <span className="text-primary">{profile.handle}</span>:
               <span className="text-accent">~</span>$ {hero.command}
             </p>
-            <h1 className="font-display text-4xl leading-tight tracking-wide text-glow md:text-6xl">
+            <h1 className="font-display text-4xl leading-tight tracking-wide break-words text-glow md:text-6xl">
               EVA SISALLI
               <br />
               GUZMÁN
             </h1>
-            <p className="mt-6 text-lg md:text-xl">
+            <p className="mt-6 text-xl md:text-2xl">
               {"> "}
               <Typewriter phrases={hero.phrases} />
             </p>
-            <p className="mt-6 max-w-xl text-sm leading-relaxed text-muted-foreground">
+            <p className="mt-6 max-w-xl text-base leading-relaxed text-muted-foreground">
               {hero.summary}
             </p>
-            <div className="mt-10 flex flex-wrap gap-4 text-sm">
+            <div className="mt-10 flex flex-wrap gap-4 text-base">
               <a
                 href="#projects"
                 className="rounded bg-primary px-5 py-3 font-medium text-primary-foreground glow transition hover:opacity-90"
@@ -63,14 +67,14 @@ export default function HomePage() {
             </div>
           </div>
 
-          <div className="rounded-md border border-border bg-card text-xs shadow-xl glow">
+          <div className="surface-card min-w-0 rounded-md border border-border bg-card text-sm shadow-xl glow">
             <div className="flex items-center gap-2 border-b border-border px-4 py-3">
               <span className="h-3 w-3 rounded-full bg-destructive" />
               <span className="h-3 w-3 rounded-full bg-warn" />
               <span className="h-3 w-3 rounded-full bg-primary" />
               <span className="ml-3 text-muted-foreground">profile.json</span>
             </div>
-            <pre className="overflow-x-auto p-5 leading-6">
+            <pre className="max-w-full overflow-x-auto p-4 leading-6 sm:p-5">
               {"{\n"}
               {"  "}
               <span className="text-accent">&quot;role&quot;</span>
@@ -122,13 +126,13 @@ export default function HomePage() {
         </section>
 
         <section id="about" className="scroll-mt-24 py-20">
-          <h2 className="mb-10 flex items-center gap-4 text-sm tracking-[0.3em] text-muted-foreground uppercase">
-            <span className="text-primary">01</span>
-            <span className="font-display text-foreground">About</span>
-            <span className="h-px flex-1 bg-border" />
+          <h2 className="mb-10 flex items-center gap-3 text-base tracking-[0.2em] text-muted-foreground uppercase sm:gap-4 sm:tracking-[0.3em]">
+            <span className="shrink-0 text-primary">01</span>
+            <span className="font-display shrink-0 text-foreground">About</span>
+            <span className="h-px min-w-0 flex-1 bg-border" />
           </h2>
           <div className="grid gap-10 md:grid-cols-[2fr_1fr]">
-            <div className="space-y-4 text-sm leading-relaxed text-muted-foreground">
+            <div className="space-y-4 text-base leading-relaxed text-muted-foreground">
               {about.paragraphs.map((paragraph) => (
                 <p key={paragraph}>{paragraph}</p>
               ))}
@@ -137,7 +141,7 @@ export default function HomePage() {
               {about.stats.map((stat) => (
                 <div key={stat.label} className="bg-card p-5">
                   <div className="font-display text-xl text-primary">{stat.value}</div>
-                  <div className="mt-2 text-[10px] tracking-widest text-muted-foreground uppercase">
+                  <div className="mt-2 text-xs tracking-widest text-muted-foreground uppercase">
                     {stat.label}
                   </div>
                 </div>
@@ -147,12 +151,12 @@ export default function HomePage() {
         </section>
 
         <section id="experience" className="scroll-mt-24 py-20">
-          <h2 className="mb-10 flex items-center gap-4 text-sm tracking-[0.3em] text-muted-foreground uppercase">
-            <span className="text-primary">02</span>
-            <span className="font-display text-foreground">Experience</span>
-            <span className="h-px flex-1 bg-border" />
+          <h2 className="mb-10 flex items-center gap-3 text-base tracking-[0.2em] text-muted-foreground uppercase sm:gap-4 sm:tracking-[0.3em]">
+            <span className="shrink-0 text-primary">02</span>
+            <span className="font-display shrink-0 text-foreground">Experience</span>
+            <span className="h-px min-w-0 flex-1 bg-border" />
           </h2>
-          <ol className="relative space-y-8 border-l border-border pl-8">
+          <ol className="relative min-w-0 space-y-8 border-l border-border pl-6 sm:pl-8">
             {experience.map((item) => (
               <li key={item.title} className="relative">
                 <span
@@ -162,34 +166,34 @@ export default function HomePage() {
                       : "bg-background"
                   }`}
                 />
-                <div className="text-xs text-primary">
+                <div className="experience-when text-sm">
                   {item.when}
                   {"current" in item && item.current ? (
-                    <span className="ml-3 rounded border border-primary px-2 py-0.5">
+                    <span className="experience-when-badge ml-3 rounded border px-2 py-0.5">
                       in progress
                     </span>
                   ) : null}
                 </div>
-                <h3 className="mt-1 font-medium">{item.title}</h3>
-                <p className="mt-1 text-sm text-muted-foreground">{item.description}</p>
+                <h3 className="mt-1 text-base font-medium">{item.title}</h3>
+                <p className="mt-1 text-base text-muted-foreground">{item.description}</p>
               </li>
             ))}
           </ol>
         </section>
 
         <section id="stack" className="scroll-mt-24 py-20">
-          <h2 className="mb-10 flex items-center gap-4 text-sm tracking-[0.3em] text-muted-foreground uppercase">
-            <span className="text-primary">03</span>
-            <span className="font-display text-foreground">Tech Stack</span>
-            <span className="h-px flex-1 bg-border" />
+          <h2 className="mb-10 flex items-center gap-3 text-base tracking-[0.2em] text-muted-foreground uppercase sm:gap-4 sm:tracking-[0.3em]">
+            <span className="shrink-0 text-primary">03</span>
+            <span className="font-display shrink-0 text-foreground">Tech Stack</span>
+            <span className="h-px min-w-0 flex-1 bg-border" />
           </h2>
-          <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {stack.map((group) => (
               <div
                 key={group.group}
-                className="rounded border border-border bg-card p-5 transition hover:border-primary"
+                className="surface-card min-w-0 rounded border border-border bg-card p-4 transition hover:border-primary sm:p-5"
               >
-                <p className="mb-4 text-xs text-muted-foreground">
+                <p className="mb-4 text-sm text-muted-foreground">
                   <span className="text-primary">$</span> ls ./{group.group}
                 </p>
                 <div className="flex flex-wrap gap-2">
@@ -203,70 +207,112 @@ export default function HomePage() {
         </section>
 
         <section id="projects" className="scroll-mt-24 py-20">
-          <h2 className="mb-10 flex items-center gap-4 text-sm tracking-[0.3em] text-muted-foreground uppercase">
-            <span className="text-primary">04</span>
-            <span className="font-display text-foreground">Projects</span>
-            <span className="h-px flex-1 bg-border" />
+          <h2 className="mb-10 flex items-center gap-3 text-base tracking-[0.2em] text-muted-foreground uppercase sm:gap-4 sm:tracking-[0.3em]">
+            <span className="shrink-0 text-primary">04</span>
+            <span className="font-display shrink-0 text-foreground">Projects</span>
+            <span className="h-px min-w-0 flex-1 bg-border" />
           </h2>
-          <div className="grid gap-4 md:grid-cols-3">
-            {projects.map((project) => (
-              <article
-                key={project.name}
-                className="flex flex-col rounded border border-border bg-card p-6 transition hover:-translate-y-1 hover:border-primary"
-              >
-                <p className="text-xs text-muted-foreground">~/projects/</p>
-                <h3 className="mt-1 text-lg font-bold text-primary">{project.name}</h3>
-                <p className="mt-3 flex-1 text-sm leading-relaxed text-muted-foreground">
-                  {project.description}
-                </p>
-                <div className="mt-4 flex flex-wrap gap-2 text-[11px] text-accent">
-                  {project.tags.map((tag) => (
-                    <span key={tag}>#{tag}</span>
-                  ))}
-                </div>
-                <div className="mt-5 flex gap-4 text-xs">
-                  {"repo" in project && project.repo ? (
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {projects.map((project) => {
+              const previewHref =
+                "live" in project && project.live
+                  ? project.live
+                  : "repo" in project && project.repo
+                    ? project.repo
+                    : undefined;
+
+              return (
+                <article
+                  key={project.name}
+                  className="project-card flex min-w-0 flex-col overflow-hidden rounded border transition hover:-translate-y-1"
+                >
+                  {"image" in project && project.image && previewHref ? (
                     <a
-                      href={project.repo}
+                      href={previewHref}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="hover:text-primary"
+                      className="project-media group relative block border-b border-border focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-ring"
+                      style={{
+                        backgroundColor:
+                          "imageBg" in project && project.imageBg
+                            ? project.imageBg
+                            : undefined,
+                      }}
+                      aria-label={`Open ${project.name}`}
                     >
-                      [ code ]
+                      <img
+                        src={project.image}
+                        alt={project.imageAlt}
+                        className="mx-auto h-24 w-full object-contain p-3 transition duration-300 group-hover:scale-[1.03] sm:h-28 sm:p-4"
+                        loading="lazy"
+                      />
+                      <span className="pointer-events-none absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/50 to-transparent px-3 py-2 text-[11px] font-medium tracking-wide text-white opacity-0 transition group-hover:opacity-100">
+                        {"demo" in project && project.demo
+                          ? "open demo →"
+                          : "live" in project && project.live
+                            ? "open site →"
+                            : "open repo →"}
+                      </span>
                     </a>
                   ) : null}
-                  {"live" in project && project.live ? (
-                    <a
-                      href={project.live}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="hover:text-primary"
-                    >
-                      {"demo" in project && project.demo ? "[ demo ]" : "[ live ]"}
-                    </a>
-                  ) : null}
-                </div>
-              </article>
-            ))}
+                  <div className="flex flex-1 flex-col p-5 sm:p-6">
+                    <p className="project-card-muted text-sm">~/projects/</p>
+                    <h3 className="mt-1 text-xl font-bold text-primary">{project.name}</h3>
+                    <p className="project-card-muted mt-3 flex-1 text-base leading-relaxed">
+                      {project.description}
+                    </p>
+                    <div className="project-card-accent mt-4 flex flex-wrap gap-2 text-xs">
+                      {project.tags.map((tag) => (
+                        <span key={tag}>#{tag}</span>
+                      ))}
+                    </div>
+                    <div className="mt-5 flex gap-4 text-sm font-medium text-primary">
+                      {"repo" in project && project.repo ? (
+                        <a
+                          href={project.repo}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="underline-offset-2 hover:underline"
+                        >
+                          [ code ]
+                        </a>
+                      ) : null}
+                      {"live" in project && project.live ? (
+                        <a
+                          href={project.live}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="underline-offset-2 hover:underline"
+                        >
+                          {"demo" in project && project.demo ? "[ demo ]" : "[ live ]"}
+                        </a>
+                      ) : null}
+                    </div>
+                  </div>
+                </article>
+              );
+            })}
           </div>
         </section>
 
         <section id="contact" className="scroll-mt-24 py-20">
-          <h2 className="mb-10 flex items-center gap-4 text-sm tracking-[0.3em] text-muted-foreground uppercase">
-            <span className="text-primary">05</span>
-            <span className="font-display text-foreground">Contact</span>
-            <span className="h-px flex-1 bg-border" />
+          <h2 className="mb-10 flex items-center gap-3 text-base tracking-[0.2em] text-muted-foreground uppercase sm:gap-4 sm:tracking-[0.3em]">
+            <span className="shrink-0 text-primary">05</span>
+            <span className="font-display shrink-0 text-foreground">Contact</span>
+            <span className="h-px min-w-0 flex-1 bg-border" />
           </h2>
-          <div className="rounded border border-border bg-card p-8 md:p-12">
-            <p className="text-sm text-muted-foreground">
+          <div className="surface-card rounded border border-border bg-card p-6 sm:p-8 md:p-12">
+            <p className="text-base text-muted-foreground">
               <span className="text-primary">$</span> ./connect.sh
             </p>
-            <h3 className="mt-4 font-display text-2xl md:text-3xl">{contact.title}</h3>
-            <p className="mt-4 max-w-xl text-sm text-muted-foreground">{contact.text}</p>
-            <div className="mt-8 flex flex-wrap gap-4 text-sm">
+            <h3 className="mt-4 font-display text-2xl break-words md:text-3xl">
+              {contact.title}
+            </h3>
+            <p className="mt-4 max-w-xl text-base text-muted-foreground">{contact.text}</p>
+            <div className="mt-8 flex flex-wrap gap-3 text-base sm:gap-4">
               <a
                 href={`mailto:${contact.email}`}
-                className="rounded bg-primary px-5 py-3 text-primary-foreground glow"
+                className="max-w-full break-all rounded bg-primary px-4 py-3 text-primary-foreground glow sm:px-5"
               >
                 {contact.email}
               </a>
@@ -290,7 +336,7 @@ export default function HomePage() {
           </div>
         </section>
       </main>
-      <footer className="border-t border-border py-8 text-center text-xs text-muted-foreground">
+      <footer className="border-t border-border py-8 text-center text-sm text-muted-foreground">
         © {new Date().getFullYear()} {profile.name} ·{" "}
         <span className="text-primary">exit 0</span>
       </footer>
