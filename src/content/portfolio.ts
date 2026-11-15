@@ -149,7 +149,7 @@ export const projects = [
     description:
       "2D tactics board (CanchaDT) for amateur and youth football coaches and players. PWA for tablet, phone and desktop — futsal, 5-, 7- and 11-a-side. Live demo still under development.",
     tags: ["React", "TypeScript", "PWA", "Cloudflare"],
-    live: "https://dev-futbol-total.miskybox.workers.dev/",
+    live: "https://www.canchadt.app/",
     demo: true,
     image: "/projects/cancha-dt.png",
     imageAlt: "Logo de CanchaDT — pizarra táctica de fútbol",
