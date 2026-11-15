@@ -84,7 +84,7 @@
 
 | | Project | ES | EN | Links |
 | :---: | --- | --- | --- | --- |
-| <img src="public/projects/cancha-dt.png" alt="CanchaDT" width="120" /> | **cancha-dt** | Pizarra táctica 2D (PWA) para fútbol amateur y base | 2D tactics board (PWA) for amateur & youth football | [Demo](https://dev-futbol-total.miskybox.workers.dev/) |
+| <img src="public/projects/cancha-dt.png" alt="CanchaDT" width="120" /> | **cancha-dt** | Pizarra táctica 2D (PWA) para fútbol amateur y base | 2D tactics board (PWA) for amateur & youth football | [Demo](https://www.canchadt.app/) |
 | <img src="public/projects/forum-viajeros.png" alt="Forum Viajeros" width="120" /> | **forum-viajeros** | SPA de relatos y comunidad viajera | Travel stories & community SPA | [Web](https://www.forumviajeros.com/) · [Code](https://github.com/miskybox/Forum_frontend) |
 | <img src="public/projects/playwright-qa.svg" alt="Playwright QA" width="120" /> | **playwright-qa-tests** | Suite E2E risk-based (Polymer Shop) | Risk-based E2E suite (Polymer Shop) | [Code](https://github.com/miskybox/project-qa-tests) |
 
